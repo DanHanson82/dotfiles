@@ -1,0 +1,22 @@
+{
+"layouts": [
+    "tall",
+    "fullscreen",
+    ],
+
+"mod1": [
+    "command",
+    "shift"
+    ],
+
+"mod2": [
+    "command",
+    "shift",
+    "control"
+    ],
+
+"mouse-follows-focus": true,
+
+"enables-layout-hud-on-space-change": false
+
+}
