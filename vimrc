@@ -21,6 +21,7 @@ Bundle 'xolox/vim-easytags'
 Bundle 'FelikZ/ctrlp-py-matcher'
 Bundle 'dbakker/vim-projectroot'
 Bundle 'rking/ag.vim'
+Plugin 'bling/vim-airline'
 
 Bundle 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
@@ -77,9 +78,11 @@ set wrap
 set number
 set ic
 syntax on
-
 set nobackup
 set noswapfile
+
+" statusline
+set laststatus=2
 
 set backspace=indent,eol,start
 
