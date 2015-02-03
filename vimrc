@@ -51,6 +51,10 @@ else
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
 
+set encoding=utf-8
+set mouse=a
+set ttymouse=xterm2
+
 " Set delay to prevent extra search
 let g:ctrlp_lazy_update = 350
 
