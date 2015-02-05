@@ -18,7 +18,6 @@ Bundle 'mbbill/undotree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
-Bundle 'FelikZ/ctrlp-py-matcher'
 Bundle 'dbakker/vim-projectroot'
 Bundle 'rking/ag.vim'
 Plugin 'bling/vim-airline'
@@ -44,34 +43,10 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "
-" PyMatcher for CtrlP
-if !has('python')
-echo 'In order to use pymatcher plugin, you need +python compiled vim'
-else
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-endif
 
 set encoding=utf-8
 set mouse=a
 set ttymouse=xterm2
-
-" Set delay to prevent extra search
-let g:ctrlp_lazy_update = 350
-
-" Do not clear filenames cache, to improve CtrlP startup
-" You can manualy clear it by <F5>
-let g:ctrlp_clear_cache_on_exit = 0
-
-" Set no file limit, we are building a big project
-let g:ctrlp_max_files = 0
-
-" If ag is available use it as filename list generator instead of 'find'
-if executable("ag")
-set grepprg=ag\ --nogroup\ --nocolor
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
-endif
-
-set mouse=a
 
 set magic
 set showmatch
