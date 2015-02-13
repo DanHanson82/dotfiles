@@ -2,6 +2,7 @@
 "layouts": [
     "tall",
     "fullscreen",
+    "wide",
     ],
 
 "mod1": [
