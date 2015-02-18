@@ -48,6 +48,9 @@ set encoding=utf-8
 set mouse=a
 set ttymouse=xterm2
 
+set colorcolumn=80
+highlight ColorColumn ctermbg=DarkGray
+
 set magic
 set showmatch
 set ai "auto indent
