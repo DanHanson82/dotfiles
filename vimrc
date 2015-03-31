@@ -49,7 +49,6 @@ set mouse=a
 set ttymouse=xterm2
 
 set colorcolumn=80
-highlight ColorColumn ctermbg=DarkGray
 
 set magic
 set showmatch
