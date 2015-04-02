@@ -48,7 +48,9 @@ set encoding=utf-8
 set mouse=a
 set ttymouse=xterm2
 
-set colorcolumn=80
+" set colorcolumn=80
+let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 set magic
 set showmatch
