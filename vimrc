@@ -10,6 +10,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround.git'
+Plugin 'zhaocai/GoldenView.Vim' "Always have a nice view for vim 
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'burnettk/vim-angular'
 Bundle 'editorconfig/editorconfig-vim'
@@ -17,11 +19,11 @@ Bundle 'scrooloose/syntastic'
 Bundle 'mbbill/undotree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-easytags'
+" Bundle 'xolox/vim-easytags'
 Bundle 'dbakker/vim-projectroot'
 Bundle 'rking/ag.vim'
 Plugin 'bling/vim-airline'
-
+Plugin 'severin-lemaignan/vim-minimap'
 Bundle 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
