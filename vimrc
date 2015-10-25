@@ -11,7 +11,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround.git'
-Plugin 'zhaocai/GoldenView.Vim' "Always have a nice view for vim 
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'burnettk/vim-angular'
 Bundle 'editorconfig/editorconfig-vim'
