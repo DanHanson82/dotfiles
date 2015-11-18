@@ -12,20 +12,16 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround.git'
 Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'burnettk/vim-angular'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'mbbill/undotree'
 Bundle 'kien/ctrlp.vim'
-Bundle 'xolox/vim-misc'
-" Bundle 'xolox/vim-easytags'
 Bundle 'dbakker/vim-projectroot'
 Bundle 'rking/ag.vim'
 Plugin 'bling/vim-airline'
-Plugin 'severin-lemaignan/vim-minimap'
-Bundle 'SirVer/ultisnips'
+" Bundle 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 
 
 
@@ -71,7 +67,6 @@ set laststatus=2
 set backspace=indent,eol,start
 
 
-let g:pymode_folding = 0
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 let mapleader = " "
@@ -90,6 +85,8 @@ nnoremap <leader>b :Gblame<Return>
 nnoremap <leader>s :Gstatus<Return>
 
 nnoremap <c-e> :Explore<Return>
+nnoremap <leader>% :vs.<Return>
+nnoremap <leader>" :sp.<Return>
 nnoremap <leader>q :q<Return>
 nnoremap <leader>qa :qa<Return>
 nnoremap <leader>qi :qa!<Return>
