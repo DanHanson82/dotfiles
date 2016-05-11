@@ -1,3 +1,13 @@
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme) 
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
+  let iCanHazVundle=0
+endif
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -10,42 +20,40 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-abolish.git'
 Plugin 'tpope/vim-surround.git'
+Plugin 'tpope/vim-repeat.git'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'scrooloose/syntastic'
-Bundle 'mbbill/undotree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'dbakker/vim-projectroot'
 Bundle 'rking/ag.vim'
 Plugin 'bling/vim-airline'
-" Bundle 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-" Plugin 'honza/vim-snippets'
 
-
+"Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-easytags'
 
 " All of your Plugins must be added before the following line
+if iCanHazVundle == 0
+  echo "Installing Vundles, please ignore key map error messages"
+  echo ""
+  :PluginInstall
+endif
+
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
 
 set encoding=utf-8
 set mouse=a
-set ttymouse=xterm2
 
-" set colorcolumn=80
+if !has('nvim')
+        set ttymouse=xterm2
+endif
+
+"let easytags_always_enabled=1
+"let easytags_async=1
+
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
@@ -63,16 +71,14 @@ set noswapfile
 
 " statusline
 set laststatus=2
-
 set backspace=indent,eol,start
-
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 let mapleader = " "
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-f>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Fugitive commands
 nnoremap <leader>d :Gvdiff<Return>

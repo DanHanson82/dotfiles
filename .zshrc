@@ -79,5 +79,3 @@ bindkey -v
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias t='sh ~/Dropbox/todo/todo.sh -d ~/Dropbox/todo/todo.cfg'
-alias p='pomo'
