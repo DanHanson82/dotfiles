@@ -1,24 +1,14 @@
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme) 
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
-  let iCanHazVundle=0
-endif
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-abolish.git'
 Plugin 'tpope/vim-surround.git'
@@ -33,13 +23,6 @@ Plugin 'bling/vim-airline'
 
 "Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-easytags'
-
-" All of your Plugins must be added before the following line
-if iCanHazVundle == 0
-  echo "Installing Vundles, please ignore key map error messages"
-  echo ""
-  :PluginInstall
-endif
 
 call vundle#end()            " required
 filetype plugin indent on    " required

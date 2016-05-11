@@ -16,6 +16,20 @@ echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
+if [ -f "~/.vim/bundle/vundle/README.md" ];
+then
+  echo "Vundle already installed"
+else
+  echo "Installing Vundle"
+  mkdir -p ~/.vim/bundle
+  git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
+fi
+
+if [[ `uname` == 'Darwin' ]] ; then
+  brew install the_silver_searcher
+fi
+        
+
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
@@ -24,5 +38,4 @@ for file in $files; do
     ln -s $dir/$file ~/$file
 done
 
-source ~/.bashrc
-source ~/.vimrc
+vim +PluginInstall +qall
