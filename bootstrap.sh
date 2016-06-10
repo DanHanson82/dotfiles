@@ -25,7 +25,7 @@ for file in $files; do
 done
 
 if [[ `uname` == 'Darwin' ]] ; then
-  brew install vim tmux neovim/neovim/neovim the_silver_searcher reattach-to-user-namespace
+  brew install vim tmux neovim/neovim/neovim ctags the_silver_searcher reattach-to-user-namespace
 fi
         
 if [ -f ~/.vim/bundle/vundle/README.md ];
