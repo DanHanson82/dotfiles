@@ -64,6 +64,10 @@ bindkey -v
 # else
 #   export EDITOR='mvim'
 # fi
+#
+if type nvim > /dev/null ; then
+   alias vim='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

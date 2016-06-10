@@ -34,10 +34,10 @@ set mouse=a
 
 if !has('nvim')
         set ttymouse=xterm2
+        let easytags_always_enabled=1
+        let easytags_async=1
 endif
 
-"let easytags_always_enabled=1
-"let easytags_async=1
 
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
@@ -61,9 +61,6 @@ set backspace=indent,eol,start
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 let mapleader = " "
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-f>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Fugitive commands
 nnoremap <leader>d :Gvdiff<Return>
