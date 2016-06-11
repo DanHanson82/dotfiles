@@ -20,11 +20,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'dbakker/vim-projectroot'
 Bundle 'rking/ag.vim'
 Plugin 'bling/vim-airline'
-
-if !has('nvim')
-        Plugin 'xolox/vim-misc'
-        Plugin 'xolox/vim-easytags'
-endif
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
