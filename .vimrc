@@ -20,8 +20,11 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'dbakker/vim-projectroot'
 Bundle 'rking/ag.vim'
 Plugin 'bling/vim-airline'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
+
+if has('nvim')
+        Plugin 'xolox/vim-misc'
+        Plugin 'xolox/vim-easytags'
+endif
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -31,10 +34,10 @@ set mouse=a
 
 if !has('nvim')
         set ttymouse=xterm2
+else
         let easytags_always_enabled=1
         let easytags_async=1
 endif
-
 
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
