@@ -69,6 +69,7 @@ if type nvim > /dev/null ; then
    alias vim='nvim'
 fi
 
+alias emacs="/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs -nw"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 

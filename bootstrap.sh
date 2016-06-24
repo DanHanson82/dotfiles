@@ -2,7 +2,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files=".zshrc .vimrc .tmux.conf .amethyst"        # list of files/folders to symlink in homedir
+files=".zshrc .vimrc .tmux.conf .amethyst .emacs"        # list of files/folders to symlink in homedir
 
 ##########
 
@@ -24,8 +24,13 @@ for file in $files; do
     ln -s $dir/$file ~/$file
 done
 
+# for emacs
+mkdir ~/.emacs.d
+
 if [[ `uname` == 'Darwin' ]] ; then
-  brew install vim tmux neovim/neovim/neovim ctags the_silver_searcher reattach-to-user-namespace
+  brew install vim tmux neovim/neovim/neovim ctags the_silver_searcher global reattach-to-user-namespace editorconfig
+  brew install emacs --with-cocoa
+  brew cask install emacs --with-cocoa
 fi
         
 if [ -f ~/.vim/bundle/vundle/README.md ];
