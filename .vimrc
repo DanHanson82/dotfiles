@@ -31,12 +31,16 @@ set mouse=a
 if !has('nvim')
         set ttymouse=xterm2
 else
-        let easytags_always_enabled=1
-        let easytags_async=1
 endif
 
-let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
+" let &colorcolumn=join(range(81,999),",")
+" highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 set magic
 set showmatch
@@ -61,6 +65,8 @@ let mapleader = " "
 " Fugitive commands
 nnoremap <leader>d :Gvdiff<Return>
 nnoremap <leader>du :diffupdate<Return>
+nnoremap <leader>dg :diffget<Return>
+nnoremap <leader>dp :diffput<Return>
 nnoremap <leader>w :Gwrite<Return>
 nnoremap <leader>wi :Gwrite!<Return>
 nnoremap <leader>r :Gread<Return>

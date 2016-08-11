@@ -29,12 +29,19 @@ Return a list of installed packages or nil for every skipped package."
 (ensure-package-installed 'cedit
                           'editorconfig
                           'evil
+                          'helm
                           'iedit
                           'magit
-                          'org)
+                          'org
+                          'projectile
+                          'helm-projectile)
 
 (evil-mode 1)
+(helm-mode 1)
 (editorconfig-mode 1)
-
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
+(global-linum-mode t)
 
 (setq make-backup-files nil)
