@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle
@@ -20,6 +21,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'dbakker/vim-projectroot'
 Bundle 'rking/ag.vim'
 Plugin 'bling/vim-airline'
+Plugin 'majutsushi/tagbar'
 
 
 call vundle#end()            " required
@@ -28,16 +30,41 @@ filetype plugin indent on    " required
 set encoding=utf-8
 set mouse=a
 
-if !has('nvim')
-        set ttymouse=xterm2
-else
-        let easytags_always_enabled=1
-        let easytags_async=1
+set ttymouse=xterm2
+let easytags_always_enabled=1
+let easytags_async=1
+let g:easytags_auto_update=1
+let g:easytags_events = ['BufWritePost']
+" Tell EasyTags to use the tags file found by Vim
+" let g:easytags_dynamic_files = 1
+
+set tags=~/.vimtags;
+
+
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
+" Speedup ctrlp search in large projects
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
+
+
+
+
+let &colorcolumn=join(range(81,82),",")
+" highlight ColorColumn ctermbg=235 guibg=#2c2d27
+
+syntax on
 set magic
 set showmatch
 set ai "auto indent
@@ -46,7 +73,6 @@ set expandtab " use spaces instead of tabs
 set wrap
 set number
 set ic
-syntax on
 set nobackup
 set noswapfile
 
@@ -57,6 +83,9 @@ set backspace=indent,eol,start
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 let mapleader = " "
+
+" tagbar
+nnoremap <leader>t :TagbarToggle<CR><Return>
 
 " Fugitive commands
 nnoremap <leader>d :Gvdiff<Return>
