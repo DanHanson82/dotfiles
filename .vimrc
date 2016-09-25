@@ -48,7 +48,6 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-
 " Speedup ctrlp search in large projects
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .git
@@ -90,6 +89,8 @@ nnoremap <leader>t :TagbarToggle<CR><Return>
 " Fugitive commands
 nnoremap <leader>d :Gvdiff<Return>
 nnoremap <leader>du :diffupdate<Return>
+nnoremap <leader>dg :diffget<Return>
+nnoremap <leader>dp :diffput<Return>
 nnoremap <leader>w :Gwrite<Return>
 nnoremap <leader>wi :Gwrite!<Return>
 nnoremap <leader>r :Gread<Return>
