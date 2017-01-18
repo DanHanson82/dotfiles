@@ -12,12 +12,16 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-abolish.git'
-Plugin 'tpope/vim-surround.git'
-Plugin 'tpope/vim-repeat.git'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-sleuth'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-vinegar'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'scrooloose/syntastic'
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'dbakker/vim-projectroot'
 Bundle 'rking/ag.vim'
 Plugin 'bling/vim-airline'
@@ -100,7 +104,7 @@ nnoremap <leader>r :Gread<Return>
 nnoremap <leader>b :Gblame<Return>
 nnoremap <leader>s :Gstatus<Return>
 
-nnoremap <c-e> :Explore<Return>
+" nnoremap <c-e> :Explore<Return>
 nnoremap <leader>% :vs.<Return>
 nnoremap <leader>" :sp.<Return>
 nnoremap <leader>q :q<Return>
