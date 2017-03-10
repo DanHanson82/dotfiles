@@ -25,8 +25,12 @@ for file in $files; do
 done
 
 if [[ `uname` == 'Darwin' ]] ; then
-  brew install vim tmux macvim ctags the_silver_searcher global reattach-to-user-namespace editorconfig
+  brew tap d12frosted/emacs-plus
+  cat brew_packages.txt | xargs brew install
 fi
+
+# installing spacemacs configuration
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
         
 if [ -f ~/.vim/bundle/vundle/README.md ];
 then
