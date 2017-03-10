@@ -2,7 +2,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files=".zshrc .vimrc .tmux.conf .amethyst"        # list of files/folders to symlink in homedir
+files=".zshrc .vimrc .tmux.conf .amethyst .spacemacs"        # list of files/folders to symlink in homedir
 
 ##########
 
@@ -40,10 +40,6 @@ else
   mkdir -p ~/.vim/bundle
   git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
 fi
-
-mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-ln -s ~/.vim $XDG_CONFIG_HOME/nvim
-ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 
 source ~/.zshrc
 vim +PluginInstall +qall
