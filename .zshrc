@@ -69,6 +69,10 @@ if type nvim > /dev/null ; then
    alias vim='nvim'
 fi
 
+export WORKON_HOME=~/venvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -83,3 +87,6 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

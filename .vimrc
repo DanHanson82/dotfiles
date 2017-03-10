@@ -44,9 +44,9 @@ let g:easytags_events = ['BufWritePost']
 
 set tags=~/.vimtags;
 
-autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
-autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
-autocmd FileType php setlocal expandtab shiftwidth=4 tabstop=4
+" autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+" autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
+" autocmd FileType php setlocal expandtab shiftwidth=4 tabstop=4
 
 " The Silver Searcher
 if executable('ag')
@@ -104,7 +104,6 @@ nnoremap <leader>r :Gread<Return>
 nnoremap <leader>b :Gblame<Return>
 nnoremap <leader>s :Gstatus<Return>
 
-" nnoremap <c-e> :Explore<Return>
 nnoremap <leader>% :vs.<Return>
 nnoremap <leader>" :sp.<Return>
 nnoremap <leader>q :q<Return>
