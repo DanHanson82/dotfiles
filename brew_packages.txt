@@ -4,7 +4,7 @@ macvim
 ctags
 the_silver_searcher
 global
+node
 reattach-to-user-namespace
 editorconfig
 ispell
-emacs-plus

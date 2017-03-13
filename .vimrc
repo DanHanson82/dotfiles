@@ -1,10 +1,11 @@
+colorscheme gruvbox
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle
-call vundle#begin()
+call vundle#rc()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -25,14 +26,18 @@ Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'dbakker/vim-projectroot'
 Bundle 'rking/ag.vim'
 Plugin 'bling/vim-airline'
+Plugin 'freitass/todo.txt-vim'
 Plugin 'majutsushi/tagbar'
-
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-easytags'
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 set encoding=utf-8
 set mouse=a
+set t_Co=256
 
 set ttymouse=xterm2
 let easytags_always_enabled=1
@@ -47,6 +52,10 @@ set tags=~/.vimtags;
 " autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 " autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
 " autocmd FileType php setlocal expandtab shiftwidth=4 tabstop=4
+"
+" remove trailing whitespace and blank lines with whitespace
+autocmd BufWritePre * %s/\s\+$//e
+
 
 " The Silver Searcher
 if executable('ag')
@@ -65,9 +74,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
 
 
 
-
-let &colorcolumn=join(range(81,82),",")
-" highlight ColorColumn ctermbg=235 guibg=#2c2d27
+let &colorcolumn=join(range(81,999),",")
 
 syntax on
 set magic
@@ -88,26 +95,34 @@ set backspace=indent,eol,start
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 let mapleader = " "
-
+let maplocalleader = ","
 " tagbar
 nnoremap <leader>t :TagbarToggle<CR><Return>
 
 " Fugitive commands
-nnoremap <leader>d :Gvdiff<Return>
-nnoremap <leader>du :diffupdate<Return>
-nnoremap <leader>dg :diffget<Return>
-nnoremap <leader>dp :diffput<Return>
-nnoremap <leader>w :Gwrite<Return>
-nnoremap <leader>wi :Gwrite!<Return>
-nnoremap <leader>r :Gread<Return>
+nnoremap <leader>fd :Gvdiff<Return>
+nnoremap <leader>fdu :diffupdate<Return>
+nnoremap <leader>fdg :diffget<Return>
+nnoremap <leader>fdp :diffput<Return>
+nnoremap <leader>fw :Gwrite<Return>
+nnoremap <leader>fwi :Gwrite!<Return>
+nnoremap <leader>fr :Gread<Return>
+nnoremap <leader>fb :Gblame<Return>
+nnoremap <leader>fs :Gstatus<Return>
 
-nnoremap <leader>b :Gblame<Return>
-nnoremap <leader>s :Gstatus<Return>
+" window commands
+nnoremap <leader>w% :vs.<Return>
+nnoremap <leader>w" :sp.<Return>
+nnoremap <leader>wo :only<Return>
 
-nnoremap <leader>% :vs.<Return>
-nnoremap <leader>" :sp.<Return>
-nnoremap <leader>q :q<Return>
-nnoremap <leader>qa :qa<Return>
-nnoremap <leader>qi :qa!<Return>
-nnoremap <leader>o :only<Return>
-nnoremap <leader>\ :ProjectRootExe :Ag 
+" new tab
+nnoremap <leader>t :tabe<Return>
+
+" pomo timer commands
+nnoremap <leader>pp :!thyme -d<CR><CR>
+nnoremap <leader>ps :!thyme --stop<CR><CR>
+nnoremap <leader>pb :!thyme -b -d<CR><CR>
+
+
+" launch ag/silver searcher
+nnoremap <leader>\ :ProjectRootExe :Ag

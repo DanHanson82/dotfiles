@@ -69,6 +69,8 @@ if type nvim > /dev/null ; then
    alias vim='nvim'
 fi
 
+alias t='thyme'
+
 export WORKON_HOME=~/venvs
 source /usr/local/bin/virtualenvwrapper.sh
 
