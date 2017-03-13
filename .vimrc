@@ -28,16 +28,21 @@ Bundle 'rking/ag.vim'
 Plugin 'bling/vim-airline'
 Plugin 'freitass/todo.txt-vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'Yggdroot/indentLine'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
 Plugin 'morhetz/gruvbox'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+filetype indent on    " required
 
 set encoding=utf-8
 set mouse=a
 set t_Co=256
+
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
 
 set ttymouse=xterm2
 let easytags_always_enabled=1
