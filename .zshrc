@@ -70,6 +70,7 @@ if type nvim > /dev/null ; then
 fi
 
 alias t='thyme'
+alias bam='find . -name "*.pyc" -exec rm -rf {} \;'
 
 export WORKON_HOME=~/venvs
 source /usr/local/bin/virtualenvwrapper.sh

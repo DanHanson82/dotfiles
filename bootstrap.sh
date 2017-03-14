@@ -45,8 +45,10 @@ else
   git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
 fi
 
+source ~/.zshrc
+vim +PluginInstall +qall
+vim +PluginUpdate +qall
+
 mkdir -p ~/.vim/colors
 cp ~/.vim/bundle/gruvbox/colors/gruvbox.vim ~/.vim/colors/
 
-source ~/.zshrc
-vim +PluginInstall +qall

@@ -121,7 +121,7 @@ nnoremap <leader>w" :sp.<Return>
 nnoremap <leader>wo :only<Return>
 
 " new tab
-nnoremap <leader>t :tabe<Return>
+nnoremap <leader>tn :tabe<Return>
 
 " pomo timer commands
 nnoremap <leader>pp :!thyme -d<CR><CR>
