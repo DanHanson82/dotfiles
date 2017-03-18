@@ -1,3 +1,4 @@
+git
 vim
 tmux
 macvim
@@ -5,6 +6,7 @@ ctags
 the_silver_searcher
 global
 node
+python
 reattach-to-user-namespace
 editorconfig
 ispell
