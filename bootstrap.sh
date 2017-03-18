@@ -35,6 +35,7 @@ pip install virtualenvwrapper
 gem install thyme
 # installing spacemacs configuration
 # git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+sudo npm -g install instant-markdown-d
 
 if [ -f ~/.vim/bundle/vundle/README.md ];
 then
