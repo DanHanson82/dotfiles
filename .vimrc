@@ -19,6 +19,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
+Plugin 'python-mode/python-mode'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'scrooloose/syntastic'
@@ -87,7 +88,6 @@ syntax on
 set magic
 set showmatch
 set ai "auto indent
-set si "smart indent
 set expandtab " use spaces instead of tabs
 set wrap
 set number
@@ -98,6 +98,9 @@ set noswapfile
 " statusline
 set laststatus=2
 set backspace=indent,eol,start
+
+" folding
+set fdm=indent
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
