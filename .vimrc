@@ -20,6 +20,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
 Plugin 'python-mode/python-mode'
+Plugin 'vim-ruby/vim-ruby'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'scrooloose/syntastic'
@@ -36,6 +37,8 @@ Plugin 'Yggdroot/indentLine'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
 Plugin 'morhetz/gruvbox'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -122,9 +125,9 @@ nnoremap <leader>fb :Gblame<Return>
 nnoremap <leader>fs :Gstatus<Return>
 
 " window commands
-nnoremap <leader>w% :vs.<Return>
-nnoremap <leader>w" :sp.<Return>
-nnoremap <leader>wo :only<Return>
+nnoremap <leader>% :vs.<Return>
+nnoremap <leader>" :sp.<Return>
+nnoremap <leader>o :only<Return>
 
 " new tab
 nnoremap <leader>tn :tabe<Return>
