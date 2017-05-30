@@ -1,35 +1,49 @@
 #! /bin/bash
 ########## Variables
 
-dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-olddir=~/dotfiles_old             # old dotfiles backup directory
-files=".zshrc .vimrc .tmux.conf .amethyst .spacemacs .thymerc"  # list of files/folders to symlink in homedir
-
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+OLDDIR=~/dotfiles_old             # old dotfiles backup directory
+FILES=".zshrc .vimrc .tmux.conf .amethyst .spacemacs .thymerc"  # list of files/folders to symlink in homedir
+ZSH_INSTALLED=false && (type zsh > /dev/null && [[ `uname` == 'Darwin' ]]) && zsh_installed=true
 ##########
 
-# create dotfiles_old in homedir
-echo "Creating $olddir for backup of any existing dotfiles in ~"
-mkdir -p $olddir
-echo "...done"
+# Install homebrew and brew cask on osx if they aren't already installed
 
-# change to the dotfiles directory
-echo "Changing to the $dir directory"
-cd $dir
-echo "...done"
-
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
-for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/$file ~/dotfiles_old/
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/$file
-done
+if ! type brew > /dev/null && [[ `uname` == 'Darwin' ]]; then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew tap caskroom/cask
+  brew tap buo/cask-upgrade
+fi
 
 if [[ `uname` == 'Darwin' ]] ; then
   # brew tap d12frosted/emacs-plus
   # brew install emacs-plus
-  cat brew_packages.txt | xargs brew install
+  cat $DIR/brew_packages.txt | xargs brew install
+  cat $DIR/brew_casks.txt | xargs brew cask install
 fi
+
+if [ "$ZSH_INSTALLED" = false ]; then
+  # if zsh wasn't installed at the beginning of the script, we install oh-my-zsh after it is brew installed
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
+
+# create dotfiles_old in homedir
+echo "Creating $OLDDIR for backup of any existing dotfiles in ~"
+mkdir -p $OLDDIR
+echo "...done"
+
+# change to the dotfiles directory
+echo "Changing to the $DIR directory"
+cd $DIR
+echo "...done"
+
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
+for file in $FILES; do
+    echo "Moving any existing dotfiles from ~ to $OLDDIR"
+    mv ~/$file ~/dotfiles_old/
+    echo "Creating symlink to $file in home directory."
+    ln -s $DIR/$file ~/$file
+done
 
 pip install virtualenv
 pip install virtualenvwrapper

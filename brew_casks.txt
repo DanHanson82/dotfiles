@@ -1,0 +1,5 @@
+alfred
+amethyst
+font-source-code-pro
+google-chrome
+iterm2
