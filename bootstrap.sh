@@ -1,8 +1,9 @@
+#! /bin/bash
 ########## Variables
 
-dir=~/dotfiles                    # dotfiles directory
+dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files=".zshrc .vimrc .tmux.conf .amethyst .spacemacs .thymerc"        # list of files/folders to symlink in homedir
+files=".zshrc .vimrc .tmux.conf .amethyst .spacemacs .thymerc"  # list of files/folders to symlink in homedir
 
 ##########
 
