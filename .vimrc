@@ -32,13 +32,13 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'freitass/todo.txt-vim'
-Plugin 'majutsushi/tagbar'
 Plugin 'Yggdroot/indentLine'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
 Plugin 'morhetz/gruvbox'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
+Plugin 'benmills/vimux'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -87,6 +87,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
 
 
 let &colorcolumn=join(range(81,999),",")
+let g:VimuxOrientation = "h"
 
 syntax on
 set magic
@@ -110,8 +111,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 let mapleader = " "
 let maplocalleader = ","
-" tagbar
-nnoremap <leader>t :TagbarToggle<CR><Return>
 
 " Fugitive commands
 nnoremap <leader>fd :Gvdiff<Return>
@@ -123,6 +122,19 @@ nnoremap <leader>fwi :Gwrite!<Return>
 nnoremap <leader>fr :Gread<Return>
 nnoremap <leader>fb :Gblame<Return>
 nnoremap <leader>fs :Gstatus<Return>
+
+" vimux commands
+nnoremap <leader>to :ProjectRootExe :call VimuxOpenPane()<CR>
+nnoremap <leader>tc :ProjectRootExe :call VimuxSendKeys("C-c")<CR>
+nnoremap <leader>td :ProjectRootExe :call VimuxSendKeys("C-d")<CR>
+nnoremap <leader>tr :ProjectRootExe :call VimuxPromptCommand("")<CR>
+nnoremap <leader>dc :ProjectRootExe :call VimuxPromptCommand("docker-compose ")<CR>
+nnoremap <leader>dcr :ProjectRootExe :call VimuxPromptCommand("docker-compose run test ")<CR>
+nnoremap <leader>dcu :ProjectRootExe :call VimuxPromptCommand("docker-compose up ")<CR>
+nnoremap <leader>dcd :ProjectRootExe :call VimuxPromptCommand("docker-compose down ")<CR>
+nnoremap <leader>dcs :ProjectRootExe :call VimuxPromptCommand("docker-compose stop ")<CR>
+
+ map <Leader>vl :VimuxRunLastCommand<CR>
 
 " window commands
 nnoremap <leader>% :vs.<Return>
@@ -137,6 +149,5 @@ nnoremap <leader>pp :!thyme -d<CR><CR>
 nnoremap <leader>ps :!thyme --stop<CR><CR>
 nnoremap <leader>pb :!thyme -b -d<CR><CR>
 
-
 " launch ag/silver searcher
-nnoremap <leader>\ :ProjectRootExe :Ag
+nnoremap <leader>\ :ProjectRootExe :Ag --hidden<Space>
