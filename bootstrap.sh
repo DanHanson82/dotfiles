@@ -52,6 +52,11 @@ gem install thyme
 # git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 sudo npm -g install instant-markdown-d
 
+# install tmux plugin manager if the directory doesn't already exist
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 if [ -f ~/.vim/bundle/vundle/README.md ];
 then
   echo "Vundle already installed"
