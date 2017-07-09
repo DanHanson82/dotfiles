@@ -22,7 +22,7 @@ if [[ `uname` == 'Darwin' ]] ; then
   cat $DIR/brew_casks.txt | xargs brew cask install
 fi
 
-if [ "$ZSH_INSTALLED" = false ]; then
+if [ "$ZSH_INSTALLED" == false ]; then
   # if zsh wasn't installed at the beginning of the script, we install oh-my-zsh after it is brew installed
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
