@@ -33,8 +33,7 @@ Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'freitass/todo.txt-vim'
 Plugin 'Yggdroot/indentLine'
-Bundle 'xolox/vim-misc'
-" Bundle 'xolox/vim-easytags'
+Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'morhetz/gruvbox'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
@@ -52,14 +51,6 @@ hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
 
 set ttymouse=xterm2
-let easytags_always_enabled=1
-let easytags_async=1
-let g:easytags_auto_update=1
-let g:easytags_events = ['BufWritePost']
-" Tell EasyTags to use the tags file found by Vim
-" let g:easytags_dynamic_files = 1
-
-set tags=~/.vimtags;
 
 " autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 " autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
