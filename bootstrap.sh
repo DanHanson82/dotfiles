@@ -46,7 +46,7 @@ for file in $FILES; do
 done
 
 pip install virtualenv
-pip install virtualenvwrapper
+# pip install virtualenvwrapper
 gem install thyme
 # installing spacemacs configuration
 # git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
@@ -57,19 +57,19 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-if [ -f ~/.vim/bundle/vundle/README.md ];
+if [ -f ~/.vim/pack/minpac/opt/minpac/README.md ];
 then
-  echo "Vundle already installed"
+  echo "minpac already installed"
 else
-  echo "Installing Vundle"
-  mkdir -p ~/.vim/bundle
-  git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
+  echo "Installing minpac"
+  mkdir -p ~/.vim/pack/minpac/opt
+  git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
+
 fi
 
 source ~/.zshrc
-vim +PluginInstall +qall
-vim +PluginUpdate +qall
+vim +PackUpdate +qall
 
 mkdir -p ~/.vim/colors
-cp ~/.vim/bundle/gruvbox/colors/gruvbox.vim ~/.vim/colors/
+cp ~/.vim/pack/minpac/start/gruvbox/colors/gruvbox.vim ~/.vim/colors/
 

@@ -3,43 +3,40 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-abolish.git'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-sleuth'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-vinegar'
-Plugin 'python-mode/python-mode'
-Plugin 'vim-ruby/vim-ruby'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'dbakker/vim-projectroot'
-Bundle 'rking/ag.vim'
-Plugin 'w0rp/ale'
-Plugin 'bling/vim-airline'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'nelstrom/vim-markdown-folding'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'freitass/todo.txt-vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'morhetz/gruvbox'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'slashmili/alchemist.vim'
-Plugin 'benmills/vimux'
+packadd minpac
+call minpac#init()
 
-call vundle#end()            " required
+call minpac#add('VundleVim/Vundle.vim')
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-abolish')
+call minpac#add('tpope/vim-sensible')
+call minpac#add('tpope/vim-sleuth')
+call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-repeat')
+call minpac#add('tpope/vim-unimpaired')
+call minpac#add('tpope/vim-vinegar')
+call minpac#add('python-mode/python-mode')
+call minpac#add('vim-ruby/vim-ruby')
+call minpac#add('christoomey/vim-tmux-navigator')
+call minpac#add('editorconfig/editorconfig-vim')
+call minpac#add('ctrlpvim/ctrlp.vim')
+call minpac#add('dbakker/vim-projectroot')
+call minpac#add('rking/ag.vim')
+call minpac#add('w0rp/ale')
+call minpac#add('bling/vim-airline')
+call minpac#add('plasticboy/vim-markdown')
+call minpac#add('nelstrom/vim-markdown-folding')
+call minpac#add('suan/vim-instant-markdown')
+call minpac#add('freitass/todo.txt-vim')
+call minpac#add('Yggdroot/indentLine')
+call minpac#add('ludovicchabant/vim-gutentags')
+call minpac#add('morhetz/gruvbox')
+call minpac#add('elixir-lang/vim-elixir')
+call minpac#add('slashmili/alchemist.vim')
+call minpac#add('benmills/vimux')
+
+
 filetype plugin indent on    " required
 filetype indent on    " required
 
@@ -103,6 +100,10 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 let mapleader = " "
 let maplocalleader = ","
 
+" minpac commands
+nnoremap <leader>mu :call minpac#update()<Return>
+nnoremap <leader>mc :call minpac#clean()<Return>
+
 " Fugitive commands
 nnoremap <leader>fd :Gvdiff<Return>
 nnoremap <leader>fdu :diffupdate<Return>
@@ -142,3 +143,5 @@ nnoremap <leader>pb :!thyme -b -d<CR><CR>
 
 " launch ag/silver searcher
 nnoremap <leader>\ :ProjectRootExe :Ag --hidden<Space>
+
+command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()

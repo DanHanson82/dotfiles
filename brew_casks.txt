@@ -7,5 +7,4 @@ flux
 font-source-code-pro
 google-chrome
 iterm2
-quicklock
 spotify
