@@ -7,7 +7,6 @@ set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME
 packadd minpac
 call minpac#init()
 
-call minpac#add('VundleVim/Vundle.vim')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-abolish')
 call minpac#add('tpope/vim-sensible')
@@ -89,9 +88,6 @@ set noswapfile
 " statusline
 set laststatus=2
 set backspace=indent,eol,start
-
-" folding
-set fdm=indent
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
