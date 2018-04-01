@@ -4,7 +4,6 @@ bowtie
 caffeine
 dropbox
 flux
-font-source-code-pro
 google-chrome
 iterm2
 spotify
