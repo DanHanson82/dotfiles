@@ -15,6 +15,7 @@ call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-vinegar')
+call minpac#add('tpope/vim-jdaddy')
 call minpac#add('christoomey/vim-tmux-navigator')
 call minpac#add('editorconfig/editorconfig-vim')
 call minpac#add('ctrlpvim/ctrlp.vim')
@@ -27,7 +28,7 @@ call minpac#add('nelstrom/vim-markdown-folding')
 call minpac#add('suan/vim-instant-markdown')
 call minpac#add('freitass/todo.txt-vim')
 call minpac#add('Yggdroot/indentLine')
-call minpac#add('ludovicchabant/vim-gutentags')
+" call minpac#add('ludovicchabant/vim-gutentags')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('elixir-lang/vim-elixir')
 call minpac#add('slashmili/alchemist.vim')
@@ -44,7 +45,11 @@ set t_Co=256
 hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
 
+" Send more characters for redraws
+set ttyfast
 set ttymouse=xterm2
+
+let g:auto_type_info=0
 
 " autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 " autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4

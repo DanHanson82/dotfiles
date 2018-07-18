@@ -16,8 +16,11 @@ fi
 
 # Install nix package manager if it isn't already installed.
 # TODO: don't install if running nixos
+# TODO: this has been a pain in the ass.  For now just install nix first and then run the script
 if ! type nix > /dev/null; then
   curl https://nixos.org/nix/install | sh
+  source $SHELL
+  sudo launchctl start org.nixos.nix-daemon
 fi
 # nix isn't on the path in the session after installing it
 # refresh shell after installing nix. might be a better way to do this
@@ -34,6 +37,8 @@ fi
 cat $DIR/nix_packages.txt | xargs nix-env -i
 if [[ `uname` != 'Darwin' ]] ; then
   cat $DIR/non_osx_nix_packages.txt | xargs nix-env -i
+else
+  cat $DIR/nix_packages.txt | xargs nix-env -i
 fi
 # refresh shell after installing nix packages. might be a better way to do this
 source $SHELL

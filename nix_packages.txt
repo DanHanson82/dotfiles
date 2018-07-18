@@ -4,9 +4,6 @@ vim
 git
 zsh
 ctags
-nodejs
-python
-python3
 reattach-to-user-namespace
 silver-searcher
 source-code-pro

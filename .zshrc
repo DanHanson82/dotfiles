@@ -20,7 +20,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # path is currently broken with nix but working so I've commented this out for now
-# export PATH="/nix/var/nix/profiles/default/bin:~/.nix-profile:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+#export PATH="$PATH:/nix/var/nix/profiles/default/bin:~/.nix-profile:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -41,9 +41,3 @@ alias bam='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf \;'
 export PATH="$PATH:$HOME/.rvm/bin"
 
 [ -r "/etc/zshrc_$TERM_PROGRAM" ] && . "/etc/zshrc_$TERM_PROGRAM"
-# Nix
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
-# End Nix
-
