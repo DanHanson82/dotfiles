@@ -20,7 +20,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # path is currently broken with nix but working so I've commented this out for now
-#export PATH="$PATH:/nix/var/nix/profiles/default/bin:~/.nix-profile:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+#export PATH="$PATH:/$HOME/.nix-profile/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$HOME/.nix-profile/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -32,8 +33,8 @@ bindkey -v
 alias bam='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf \;'
 
 
-#export WORKON_HOME=~/venvs
-#source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=~/venvs
+source /usr/local/bin/virtualenvwrapper.sh
 #export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
 
 

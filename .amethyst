@@ -14,7 +14,6 @@
     "control"
   ],
 
-  "mouse-follows-focus": true,
 
   "enables-layout-hud-on-space-change": false
 

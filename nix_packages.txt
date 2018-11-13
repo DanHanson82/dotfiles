@@ -7,3 +7,6 @@ ctags
 reattach-to-user-namespace
 silver-searcher
 source-code-pro
+elixir
+ispell
+curl
