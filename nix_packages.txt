@@ -9,4 +9,5 @@ silver-searcher
 source-code-pro
 elixir
 ispell
-curl
+htop
+tmuxinator

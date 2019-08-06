@@ -3,7 +3,7 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 OLDDIR=~/dotfiles_old             # old dotfiles backup directory
-FILES=".zshrc .vimrc .tmux.conf .amethyst"  # list of files/folders to symlink in homedir
+FILES=".zshrc .vimrc .tmux.conf .amethyst .editorconfig"  # list of files/folders to symlink in homedir
 ##########
 
 # Install homebrew and brew cask on osx if they aren't already installed
@@ -18,7 +18,7 @@ fi
 # TODO: don't install if running nixos
 # TODO: this has been a pain in the ass.  For now just install nix first and then run the script
 if ! type nix > /dev/null; then
-  curl https://nixos.org/nix/install | sh
+  #curl https://nixos.org/nix/install | sh
   source $SHELL
   sudo launchctl start org.nixos.nix-daemon
 fi
