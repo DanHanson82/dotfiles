@@ -18,7 +18,7 @@ fi
 # TODO: don't install if running nixos
 # TODO: this has been a pain in the ass.  For now just install nix first and then run the script
 if ! type nix > /dev/null; then
-  #curl https://nixos.org/nix/install | sh
+  #curl https://nixos.org/nix/install | bash
   source $SHELL
   sudo launchctl start org.nixos.nix-daemon
 fi
@@ -37,9 +37,8 @@ fi
 cat $DIR/nix_packages.txt | xargs nix-env -i
 if [[ `uname` != 'Darwin' ]] ; then
   cat $DIR/non_osx_nix_packages.txt | xargs nix-env -i
-else
-  cat $DIR/nix_packages.txt | xargs nix-env -i
 fi
+cat $DIR/nix_packages.txt | xargs nix-env -i
 # refresh shell after installing nix packages. might be a better way to do this
 source $SHELL
 

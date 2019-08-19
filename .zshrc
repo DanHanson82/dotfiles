@@ -19,11 +19,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# path is currently broken with nix but working so I've commented this out for now
-#export PATH="$PATH:/$HOME/.nix-profile/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$HOME/.nix-profile/bin:$PATH"
-# export MANPATH="/usr/local/man:$MANPATH"
-
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -44,7 +41,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 [ -r "/etc/zshrc_$TERM_PROGRAM" ] && . "/etc/zshrc_$TERM_PROGRAM"
 export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 
-. $HOME/.asdf/asdf.sh
+#. $HOME/.asdf/asdf.sh
 
-. $HOME/.asdf/completions/asdf.bash
-export PATH="/usr/local/opt/curl/bin:$PATH"
+#. $HOME/.asdf/completions/asdf.bash
