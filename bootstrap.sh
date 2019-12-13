@@ -17,14 +17,14 @@ fi
 # Install nix package manager if it isn't already installed.
 # TODO: don't install if running nixos
 # TODO: this has been a pain in the ass.  For now just install nix first and then run the script
-if ! type nix > /dev/null; then
+# if ! type nix > /dev/null; then
   #curl https://nixos.org/nix/install | bash
-  source $SHELL
-  sudo launchctl start org.nixos.nix-daemon
-fi
+  # source $SHELL
+  # sudo launchctl start org.nixos.nix-daemon
+# fi
 # nix isn't on the path in the session after installing it
 # refresh shell after installing nix. might be a better way to do this
-source $SHELL
+# source $SHELL
 
 if [[ `uname` == 'Darwin' ]] ; then
   # brew tap d12frosted/emacs-plus
@@ -35,12 +35,12 @@ fi
 
 # install all nix packages in nix_packages.txt
 cat $DIR/nix_packages.txt | xargs nix-env -i
-if [[ `uname` != 'Darwin' ]] ; then
-  cat $DIR/non_osx_nix_packages.txt | xargs nix-env -i
-fi
-cat $DIR/nix_packages.txt | xargs nix-env -i
+# if [[ `uname` != 'Darwin' ]] ; then
+  # cat $DIR/non_osx_nix_packages.txt | xargs nix-env -i
+# fi
+# cat $DIR/nix_packages.txt | xargs nix-env -i
 # refresh shell after installing nix packages. might be a better way to do this
-source $SHELL
+# source $SHELL
 
 ### !!!WARNING!!! ####
 # THIS IS ANNOYING BECAUSE IT WILL START AN OH-MY-ZSH SHELL WHICH YOU WILL WANT TO EXIT TO FINISH THE SCRIPT

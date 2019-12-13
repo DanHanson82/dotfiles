@@ -41,6 +41,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 [ -r "/etc/zshrc_$TERM_PROGRAM" ] && . "/etc/zshrc_$TERM_PROGRAM"
 export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 
-#. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/asdf.sh
 
-#. $HOME/.asdf/completions/asdf.bash
+. $HOME/.asdf/completions/asdf.bash

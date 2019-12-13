@@ -24,14 +24,13 @@ call minpac#add('rking/ag.vim')
 call minpac#add('w0rp/ale')
 call minpac#add('bling/vim-airline')
 call minpac#add('plasticboy/vim-markdown')
-" call minpac#add('nelstrom/vim-markdown-folding')
 " call minpac#add('suan/vim-instant-markdown')
 call minpac#add('freitass/todo.txt-vim')
 call minpac#add('Yggdroot/indentLine')
 " call minpac#add('ludovicchabant/vim-gutentags')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('elixir-lang/vim-elixir')
-call minpac#add('slashmili/alchemist.vim')
+call minpac#add('mhinz/vim-mix-format')
 call minpac#add('benmills/vimux')
 
 
@@ -58,6 +57,8 @@ let g:auto_type_info=0
 " remove trailing whitespace and blank lines with whitespace
 autocmd BufWritePre * %s/\s\+$//e
 
+" mix format on save
+let g:mix_format_on_save = 1
 
 " The Silver Searcher
 if executable('ag')
@@ -134,11 +135,6 @@ nnoremap <leader>o :only<Return>
 
 " new tab
 nnoremap <leader>tn :tabe<Return>
-
-" pomo timer commands
-nnoremap <leader>pp :!thyme -d<CR><CR>
-nnoremap <leader>ps :!thyme --stop<CR><CR>
-nnoremap <leader>pb :!thyme -b -d<CR><CR>
 
 " launch ag/silver searcher
 nnoremap <leader>\ :ProjectRootExe :Ag --hidden<Space>
