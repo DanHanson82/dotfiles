@@ -34,7 +34,7 @@ if [[ `uname` == 'Darwin' ]] ; then
 fi
 
 # install all nix packages in nix_packages.txt
-cat $DIR/nix_packages.txt | xargs nix-env -i
+#cat $DIR/nix_packages.txt | xargs nix-env -i
 # if [[ `uname` != 'Darwin' ]] ; then
   # cat $DIR/non_osx_nix_packages.txt | xargs nix-env -i
 # fi
