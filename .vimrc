@@ -1,4 +1,4 @@
-colorscheme gruvbox
+"colorscheme gruvbox
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME
