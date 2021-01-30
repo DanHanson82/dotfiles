@@ -1,4 +1,3 @@
-"colorscheme gruvbox
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME
@@ -28,7 +27,6 @@ call minpac#add('plasticboy/vim-markdown')
 call minpac#add('freitass/todo.txt-vim')
 call minpac#add('Yggdroot/indentLine')
 " call minpac#add('ludovicchabant/vim-gutentags')
-call minpac#add('morhetz/gruvbox')
 call minpac#add('elixir-lang/vim-elixir')
 call minpac#add('mhinz/vim-mix-format')
 call minpac#add('benmills/vimux')

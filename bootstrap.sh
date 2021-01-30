@@ -3,7 +3,7 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 OLDDIR=~/dotfiles_old             # old dotfiles backup directory
-FILES=".zshrc .vimrc .tmux.conf .amethyst .editorconfig"  # list of files/folders to symlink in homedir
+FILES=".bashrc .vimrc .tmux.conf .amethyst .editorconfig"  # list of files/folders to symlink in homedir
 ##########
 
 # TODO: get rid of this or make it work with other operating systems
@@ -62,10 +62,4 @@ else
 
 fi
 
-source ~/.zshrc
 vim +PackUpdate +qall
-
-# TODO: get rid of this or make it work with other operating systems
-#mkdir -p ~/.vim/colors
-#cp ~/.vim/pack/minpac/start/gruvbox/colors/gruvbox.vim ~/.vim/colors/
-
