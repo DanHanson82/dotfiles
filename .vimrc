@@ -75,7 +75,8 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
 
 
 
-let &colorcolumn=join(range(81,999),",")
+let &colorcolumn=join(range(81,82),",")
+
 let g:VimuxOrientation = "h"
 
 syntax on
