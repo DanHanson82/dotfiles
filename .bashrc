@@ -9,8 +9,6 @@ set -o vi
 # running here but not sure if we want to keep this or expand it
 alias gs='git status'
 
-export EDITOR=vim
-
 #export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Add aliases.
