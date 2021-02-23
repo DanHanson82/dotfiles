@@ -6,29 +6,6 @@ OLDDIR=~/dotfiles_old             # old dotfiles backup directory
 FILES=".bashrc .vimrc .tmux.conf .amethyst .editorconfig"  # list of files/folders to symlink in homedir
 ##########
 
-# TODO: get rid of this or make it work with other operating systems
-# Install homebrew and brew cask on osx if they aren't already installed
-#if ! type brew > /dev/null && [[ `uname` == 'Darwin' ]]; then
-#  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-#  brew tap caskroom/cask
-#  #brew tap caskroom/fonts
-#  brew tap buo/cask-upgrade
-#fi
-
-# TODO: get rid of this or make it work with other operating systems
-#if [[ `uname` == 'Darwin' ]] ; then
-#  # brew tap d12frosted/emacs-plus
-#  # brew install emacs-plus
-#  cat $DIR/brew_packages.txt | xargs brew install
-#  cat $DIR/brew_casks.txt | xargs brew cask install
-#fi
-
-# TODO: move off of oh-my-zsh
-#if [ ! -d ~/.oh-my-zsh ]; then
-#  # if zsh wasn't installed at the beginning of the script, we install oh-my-zsh after it is brew installed
-#  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-#fi
-
 # create dotfiles_old in homedir
 echo "Creating $OLDDIR for backup of any existing dotfiles in ~"
 mkdir -p $OLDDIR
