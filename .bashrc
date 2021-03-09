@@ -11,6 +11,9 @@ alias gs='git status'
 
 #export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+PS1='\w => '
+export PROMPT_COMMAND="echo -n \[\$(date +%H:%M:%S)\]\ "
+
 # Add aliases.
 if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
