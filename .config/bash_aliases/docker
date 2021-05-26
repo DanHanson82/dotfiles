@@ -1,0 +1,12 @@
+# compose stuff
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'
+alias dcb='docker-compose build'
+alias dcr='docker-compose run'
+
+# docker stuff
+alias dps='docker ps'
+alias dsa='docker stop $(docker ps -a -q)'
+alias dra='docker rm $(docker ps -a -q)'
+alias drai='docker rmi $(docker images -a -q)'
+alias dvp='docker volume prune'

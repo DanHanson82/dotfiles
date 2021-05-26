@@ -6,15 +6,16 @@ set -o vi
 
 . $HOME/.asdf/asdf.sh
 
-# running here but not sure if we want to keep this or expand it
-alias gs='git status'
-
-#export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-PS1='\w => '
+# messing with my prompt.  still needs work
+PS1='\w ¯\_(ツ)_/¯ '
 export PROMPT_COMMAND="echo -n \[\$(date +%H:%M:%S)\]\ "
 
-# Add aliases.
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
+# increase history
+HISTSIZE=20000
+HISTFILESIZE=20000
+
+if [ -f ~/.config/bash_aliases/special ]; then
+  . ~/.config/bash_aliases/special
+else
+  . ~/.config/bash_aliases/default
 fi

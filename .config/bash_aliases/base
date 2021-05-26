@@ -1,0 +1,8 @@
+alias lsl='ls -thal'
+# git stuff
+alias gc='git commit -m'
+alias gco='git checkout'
+alias gf='git fetch'
+alias gpo='git pull origin'
+alias gpo='git push origin'
+alias gs='git status'

@@ -1,0 +1,3 @@
+# default but an example of including aliases from other files and adding them to specific aliases for certain hosts
+. ~/.config/bash_aliases/base
+. ~/.config/bash_aliases/docker
