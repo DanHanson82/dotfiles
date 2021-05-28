@@ -1,0 +1,4 @@
+\x auto
+\timing
+\set time zone utc
+\set AUTOCOMMIT off

@@ -1,9 +1,4 @@
-alfred
 amethyst
-bowtie
-caffeine
 dropbox
-flux
 google-chrome
 iterm2
-spotify

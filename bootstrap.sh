@@ -3,7 +3,7 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 OLDDIR=~/dotfiles_old             # old dotfiles backup directory
-FILES=".bashrc .vimrc .tmux.conf .amethyst .editorconfig .tool-versions"
+FILES=".bashrc .vimrc .tmux.conf .amethyst .editorconfig .tool-versions .psqlrc"
 ##########
 
 ## make backups if files exist
@@ -22,9 +22,7 @@ done
 if [ ! -f $HOME/.asdf/asdf.sh ]; then
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1
 fi
-# install defaults from .tool-versions.  This will include nvim and tmux
-asdf install
-
+# add plugins and install defaults from .tool-versions.  This will include nvim and tmux
 
 # setup bash aliases
 mkdir -p ~/.config/bash_aliases
@@ -35,7 +33,7 @@ for file in $ALIAS_FILES; do
   fi
 done
 
-# nvim should be install by asdf.  install vim-plug and symlink nvim config
+# nvim and tmux should be installed by asdf.  install vim-plug and symlink nvim config
 mkdir -p ~/.config/nvim
 if [ ! -f ~/.config/nvim/init.vim ]; then
   ln -s $DIR/.config/nvim/init.vim ~/.config/nvim/init.vim

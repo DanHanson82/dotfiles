@@ -1,7 +1,11 @@
 golang 1.15.7
+perl 5.32.1
 python 3.8.7 2.7.18
 postgres 9.6.18
-tmux 3.1
 mkcert 1.4.3
-perl 5.32.1
-neovim stable
+tmux 3.1
+neovim nightly
+fzf 0.27.1
+ripgrep 12.1.1
+bat 0.18.1
+fd 8.2.1

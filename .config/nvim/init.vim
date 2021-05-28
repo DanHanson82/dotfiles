@@ -1,18 +1,9 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME
-
-if (has("termguicolors"))
-  set termguicolors
-endif
-
 " =============================================================================
 " Plugins
 " =============================================================================
-"source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/autoload/plug.vim
-" call plug#begin()
 call plug#begin('~/.config/nvim/autoload/plugged')
+  " from the myth, the man, the legend
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-sensible'
@@ -22,68 +13,67 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-vinegar'
   Plug 'tpope/vim-jdaddy'
+
+  " tmux stuff
   Plug 'christoomey/vim-tmux-navigator'
+
+  " have to sort through which of these should stay or go
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'dbakker/vim-projectroot'
-  Plug 'rking/ag.vim'
-  Plug 'w0rp/ale'
-  Plug 'bling/vim-airline'
-  Plug 'plasticboy/vim-markdown'
-  Plug 'suan/vim-instant-markdown'
-  Plug 'freitass/todo.txt-vim'
   Plug 'Yggdroot/indentLine'
-  Plug 'ludovicchabant/vim-gutentags'
+  Plug 'w0rp/ale'
+
+  Plug 'freitass/todo.txt-vim'
+  Plug 'plasticboy/vim-markdown'
+  "Plug 'suan/vim-instant-markdown'
   Plug 'elixir-lang/vim-elixir'
   Plug 'mhinz/vim-mix-format'
-  Plug 'benmills/vimux'
-  Plug 'overcache/NeoSolarized'
+
+  " new plugins after moving over
+  " lsp
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+  Plug 'nvim-lua/completion-nvim'
+  Plug 'lewis6991/spellsitter.nvim'
+
+  Plug 'jremmen/vim-ripgrep'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+
+  " appearance
+  Plug 'rktjmp/lush.nvim'
+  Plug 'npxbr/gruvbox.nvim'
+
+  " status bar
+  Plug 'itchyny/lightline.vim'
+  Plug 'itchyny/vim-gitbranch'
 call plug#end()
 
-colorscheme NeoSolarized
-
-filetype plugin indent on    " required
-filetype indent on    " required
-
-set encoding=utf-8
-set mouse=a
-set t_Co=256
-
-hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
-
-let g:auto_type_info=0
-
-" autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
-" autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
-" autocmd FileType php setlocal expandtab shiftwidth=4 tabstop=4
-"
-" remove trailing whitespace and blank lines with whitespace
-autocmd BufWritePre * %s/\s\+$//e
-
-" mix format on save
-let g:mix_format_on_save = 1
-
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+" =============================================================================
+" Copy gruvbox theme to lightline:
+" cp ~/.config/nvim/autoload/plugged/gruvbox.nvim/autoload/airline/themes/gruvbox.vim ~/.config/nvim/autoload/plugged/lightline.vim/autoload/lightline/colorscheme
+" =============================================================================
+if (has("termguicolors"))
+  set termguicolors
 endif
+set background=dark " or light if you want light mode
+colorscheme gruvbox
 
-" Speedup ctrlp search in large projects
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .svn
-      \ --ignore .hg
-      \ --ignore .DS_Store
-      \ --ignore "**/*.pyc"
-      \ -g ""'
-
-
-
-let &colorcolumn=join(range(81,82),",")
-
-let g:VimuxOrientation = "h"
+" =============================================================================
+" Lightline
+" https://github.com/itchyny/lightline.vim
+" =============================================================================
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 
 syntax on
 set magic
@@ -96,24 +86,38 @@ set ic
 set nobackup
 set noswapfile
 
-" statusline
-set laststatus=2
-set backspace=indent,eol,start
+filetype plugin indent on
+filetype indent on
+
+let &colorcolumn=join(range(81,82),",")
+
+set spelllang=en
+set mouse=a
+let g:auto_type_info=0
+
+" remove trailing whitespace and blank lines with whitespace
+autocmd BufWritePre * %s/\s\+$//e
+" mix format on save
+let g:mix_format_on_save = 1
+
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 let mapleader = " "
 let maplocalleader = ","
 
-" minpac commands
-nnoremap <leader>mu :call minpac#update()<Return>
-nnoremap <leader>mc :call minpac#clean()<Return>
-
 " vim-plug commands
 nnoremap <leader>pi :PlugInstall<Return>
 nnoremap <leader>pu :PlugUpdate<Return>
 nnoremap <leader>pd :PlugDiff<Return>
 nnoremap <leader>pc :PlugClean<Return>
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff :lua require('telescope.builtin').find_files{ find_command = {'rg', '--files', '--hidden', '-g', '!node_modules/**' , '-g', '!.git'} }<CR>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 
 " Fugitive commands
 nnoremap <leader>fd :Gvdiff<Return>
@@ -126,19 +130,6 @@ nnoremap <leader>fr :Gread<Return>
 nnoremap <leader>fb :Gblame<Return>
 nnoremap <leader>fs :Gstatus<Return>
 
-" vimux commands
-nnoremap <leader>to :ProjectRootExe :call VimuxOpenPane()<CR>
-nnoremap <leader>tc :ProjectRootExe :call VimuxSendKeys("C-c")<CR>
-nnoremap <leader>td :ProjectRootExe :call VimuxSendKeys("C-d")<CR>
-nnoremap <leader>tr :ProjectRootExe :call VimuxPromptCommand("")<CR>
-nnoremap <leader>dc :ProjectRootExe :call VimuxPromptCommand("docker-compose ")<CR>
-nnoremap <leader>dcr :ProjectRootExe :call VimuxPromptCommand("docker-compose run test ")<CR>
-nnoremap <leader>dcu :ProjectRootExe :call VimuxPromptCommand("docker-compose up ")<CR>
-nnoremap <leader>dcd :ProjectRootExe :call VimuxPromptCommand("docker-compose down ")<CR>
-nnoremap <leader>dcs :ProjectRootExe :call VimuxPromptCommand("docker-compose stop ")<CR>
-
- map <Leader>vl :VimuxRunLastCommand<CR>
-
 " window commands
 nnoremap <leader>% :vs.<Return>
 nnoremap <leader>" :sp.<Return>
@@ -147,7 +138,4 @@ nnoremap <leader>o :only<Return>
 " new tab
 nnoremap <leader>tn :tabe<Return>
 
-" launch ag/silver searcher
-nnoremap <leader>\ :ProjectRootExe :Ag --hidden<Space>
-
-command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
+nnoremap <leader>\ :ProjectRootExe :Rg --hidden<Space>

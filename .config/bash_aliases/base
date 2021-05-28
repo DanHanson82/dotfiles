@@ -1,6 +1,7 @@
 alias lsl='ls -thal'
 # git stuff
 alias gc='git commit -m'
+alias gb='git branch'
 alias gco='git checkout'
 alias gf='git fetch'
 alias gpo='git pull origin'

@@ -1,13 +1,6 @@
 tig
-tmux
-vim
 git
-zsh
-ctags
 reattach-to-user-namespace
-the_silver_searcher
 ispell
 htop
-python
-python3
 curl
