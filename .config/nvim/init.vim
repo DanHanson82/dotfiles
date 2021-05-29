@@ -21,7 +21,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'editorconfig/editorconfig-vim'
   Plug 'dbakker/vim-projectroot'
   Plug 'Yggdroot/indentLine'
-  Plug 'w0rp/ale'
+  Plug 'dense-analysis/ale'
+
 
   Plug 'freitass/todo.txt-vim'
   Plug 'plasticboy/vim-markdown'
@@ -50,10 +51,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'itchyny/vim-gitbranch'
 call plug#end()
 
-" =============================================================================
-" Copy gruvbox theme to lightline:
-" cp ~/.config/nvim/autoload/plugged/gruvbox.nvim/autoload/airline/themes/gruvbox.vim ~/.config/nvim/autoload/plugged/lightline.vim/autoload/lightline/colorscheme
-" =============================================================================
 if (has("termguicolors"))
   set termguicolors
 endif
@@ -65,7 +62,7 @@ colorscheme gruvbox
 " https://github.com/itchyny/lightline.vim
 " =============================================================================
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'jellybeans',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -113,7 +110,8 @@ nnoremap <leader>pd :PlugDiff<Return>
 nnoremap <leader>pc :PlugClean<Return>
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff :lua require('telescope.builtin').find_files{ find_command = {'rg', '--files', '--hidden', '-g', '!node_modules/**' , '-g', '!.git'} }<CR>
+nnoremap <leader>ff <cmd>:lua require('telescope.builtin').find_files{ find_command = {'rg', '--files', '--hidden', '-g', '!node_modules/**' , '-g', '!.git'} }<cr>
+nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
