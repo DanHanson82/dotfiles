@@ -20,13 +20,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'freitass/todo.txt-vim'
   Plug 'plasticboy/vim-markdown'
   "Plug 'suan/vim-instant-markdown'
-  Plug 'mhinz/vim-mix-format'
   Plug 'elixir-editors/vim-elixir'
   Plug 'editorconfig/editorconfig-vim'
 
   " tree-sitter
   " install rust and then run the following to install a working version of tree-sitter-cli
-  " cargo install tree-sitter-cli --git https://github.com/tree-sitter/tree-sitter.git --tag v0.18.3
+  " cargo install tree-sitter-cli --git https://github.com/tree-sitter/tree-sitter.git --tag v0.19.5
   " TODO: figure out a way of handling various formatters in my dotfiles
   " TSInstall elixir
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -68,6 +67,7 @@ let g:material_style = 'darker'
 " =============================================================================
 " tree-sitter
 " =============================================================================
+
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -197,7 +197,7 @@ nnoremap <leader>gw :Gwrite<Return>
 nnoremap <leader>gwi :Gwrite!<Return>
 nnoremap <leader>gr :Gread<Return>
 nnoremap <leader>gb :Gblame<Return>
-nnoremap <leader>gs :Gstatus<Return>
+nnoremap <leader>gs :Git<Return>
 
 " window commands
 nnoremap <leader>% :vs.<Return>
