@@ -6,9 +6,7 @@ set -o vi
 
 . $HOME/.asdf/asdf.sh
 
-# messing with my prompt.  still needs work
-PS1='\w ¯\_(ツ)_/¯ '
-export PROMPT_COMMAND="echo -n \[\$(date +%H:%M:%S)\]\ "
+PS1='[\D{%Y-%m-%d %H:%M:%S}]\w ¯\_(ツ)_/¯ '
 
 # increase history
 HISTSIZE=20000

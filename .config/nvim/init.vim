@@ -148,10 +148,21 @@ let g:auto_type_info=0
 " add a line at 80 characters
 let &colorcolumn=join(range(81,82),",")
 
+
+" =============================================================================
+" on save file
+" =============================================================================
+
 " remove trailing whitespace and blank lines with whitespace
 autocmd BufWritePre * %s/\s\+$//e
+
 " mix format on save
-let g:mix_format_on_save = 1
+" getting rid of mix-format potentially if lsp handles things
+" let g:mix_format_on_save = 1
+
+" commenting this out for now
+"autocmd BufWritePre <buffer> call Preserve('lua vim.lsp.buf.formatting_sync(nil, 1000)')
+
 
 " =============================================================================
 " custom key mappings
@@ -170,7 +181,6 @@ nnoremap <leader>lh  <cmd>lua vim.lsp.buf.hover()<CR>
 " method textDocument/rename is not supported by any of the servers registered for the current buffer
 nnoremap <silent>rn <cmd>lua vim.lsp.buf.rename()<CR>
 
-autocmd BufWritePre <buffer> call Preserve('lua vim.lsp.buf.formatting_sync(nil, 1000)')
 " vim-plug commands
 nnoremap <leader>pi :PlugInstall<Return>
 nnoremap <leader>pu :PlugUpdate<Return>
