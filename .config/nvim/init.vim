@@ -21,6 +21,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'plasticboy/vim-markdown'
   "Plug 'suan/vim-instant-markdown'
   Plug 'elixir-editors/vim-elixir'
+  Plug 'mhinz/vim-mix-format'
   Plug 'editorconfig/editorconfig-vim'
 
   " tree-sitter
@@ -157,8 +158,7 @@ let &colorcolumn=join(range(81,82),",")
 autocmd BufWritePre * %s/\s\+$//e
 
 " mix format on save
-" getting rid of mix-format potentially if lsp handles things
-" let g:mix_format_on_save = 1
+let g:mix_format_on_save = 1
 
 " commenting this out for now
 "autocmd BufWritePre <buffer> call Preserve('lua vim.lsp.buf.formatting_sync(nil, 1000)')
