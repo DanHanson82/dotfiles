@@ -42,7 +42,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'nvim-lua/completion-nvim'
 
   " telescope, fuzzy file finding and live grepping
-  Plug 'jremmen/vim-ripgrep'
+  "Plug 'jremmen/vim-ripgrep'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
