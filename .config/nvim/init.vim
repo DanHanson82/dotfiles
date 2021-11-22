@@ -206,7 +206,7 @@ nnoremap <leader>gdp :diffput<Return>
 nnoremap <leader>gw :Gwrite<Return>
 nnoremap <leader>gwi :Gwrite!<Return>
 nnoremap <leader>gr :Gread<Return>
-nnoremap <leader>gb :Gblame<Return>
+nnoremap <leader>gb :Git blame<Return>
 nnoremap <leader>gs :Git<Return>
 
 " window commands
