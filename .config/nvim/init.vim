@@ -37,15 +37,17 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
   " lsp
   Plug 'neovim/nvim-lspconfig'
-  Plug 'kabouzeid/nvim-lspinstall'
+  Plug 'williamboman/nvim-lsp-installer'
   " ex: LspInstall elixir
   Plug 'nvim-lua/completion-nvim'
 
   " telescope, fuzzy file finding and live grepping
-  "Plug 'jremmen/vim-ripgrep'
-  Plug 'nvim-lua/popup.nvim'
+  Plug 'BurntSushi/ripgrep'
+  "Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
 
   " appearance
   Plug 'marko-cerovac/material.nvim'
@@ -102,25 +104,23 @@ let g:lightline = {
 
 
 " =============================================================================
-" lsp install
-" https://github.com/kabouzeid/nvim-lspinstall
+" lsp installer
+" https://github.com/williamboman/nvim-lsp-installer
 " =============================================================================
 
 lua <<EOF
-local function setup_servers()
-  require'lspinstall'.setup()
-  local servers = require'lspinstall'.installed_servers()
-  for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{}
-  end
-end
+local lsp_installer_servers = require'nvim-lsp-installer.servers'
 
-setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+local server_available, requested_server = lsp_installer_servers.get_server("rust_analyzer")
+if server_available then
+    requested_server:on_ready(function ()
+        local opts = {}
+        requested_server:setup(opts)
+    end)
+    if not requested_server:is_installed() then
+        -- Queue the server to be installed
+        requested_server:install()
+    end
 end
 EOF
 
@@ -128,6 +128,17 @@ EOF
 " lsp config
 " =============================================================================
 
+" =============================================================================
+" telescope
+" =============================================================================
+
+lua <<EOF
+require('telescope').load_extension('fzf')
+EOF
+
+" =============================================================================
+" telescope
+" =============================================================================
 
 syntax on
 set magic
@@ -188,7 +199,9 @@ nnoremap <leader>pd :PlugDiff<Return>
 nnoremap <leader>pc :PlugClean<Return>
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>:lua require('telescope.builtin').find_files{ find_command = {'rg', '--files', '--hidden', '-g', '!node_modules/**' , '-g', '!.git'} }<cr>
+"nnoremap <leader>ff <cmd>:lua require('telescope.builtin').find_files{ find_command = {'rg', '--files', '--hidden', '-g', '!node_modules/**' , '-g', '!.git'} }<cr>
+"nnoremap <leader>ff <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>

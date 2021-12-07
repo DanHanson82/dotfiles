@@ -8,7 +8,7 @@ python 3.8.7 2.7.18
 postgres 9.6.18
 mkcert 1.4.3
 tmux 3.1
-neovim nightly
+neovim 0.5.1
 fzf 0.27.1
 ripgrep 12.1.1
 bat 0.18.1
