@@ -1,14 +1,13 @@
-golang 1.15.7
-perl 5.32.1
 nodejs 16.0.0
 erlang 24.0.2
 elixir 1.12.1-otp-24
 rust 1.49.0
+mongodb 5.0.1
 python 3.8.7 2.7.18
 postgres 12.7
 mkcert 1.4.3
 tmux 3.1
-neovim 0.6.0
+neovim 0.7.0
 fzf 0.27.1
 ripgrep 12.1.1
 bat 0.18.1
