@@ -1,4 +1,0 @@
-amethyst
-dropbox
-google-chrome
-iterm2

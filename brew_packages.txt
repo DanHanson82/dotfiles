@@ -1,6 +1,0 @@
-tig
-git
-reattach-to-user-namespace
-ispell
-htop
-curl

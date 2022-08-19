@@ -40,6 +40,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'williamboman/nvim-lsp-installer'
   " ex: LspInstall elixir
   Plug 'nvim-lua/completion-nvim'
+  Plug 'mfussenegger/nvim-lint'
 
   " telescope, fuzzy file finding and live grepping
   Plug 'BurntSushi/ripgrep'
@@ -167,6 +168,7 @@ let &colorcolumn=join(range(81,82),",")
 
 " remove trailing whitespace and blank lines with whitespace
 autocmd BufWritePre * %s/\s\+$//e
+au BufWritePost lua require('lint').try_lint()
 
 " mix format on save
 let g:mix_format_on_save = 1
