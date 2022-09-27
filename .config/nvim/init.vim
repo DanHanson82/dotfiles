@@ -20,7 +20,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'freitass/todo.txt-vim'
   Plug 'plasticboy/vim-markdown'
   "Plug 'suan/vim-instant-markdown'
-  Plug 'elixir-editors/vim-elixir'
   Plug 'mhinz/vim-mix-format'
   Plug 'editorconfig/editorconfig-vim'
 
@@ -35,12 +34,29 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'nvim-treesitter/playground'
   Plug 'lewis6991/spellsitter.nvim'
 
-  " lsp
+  " LSP Support
   Plug 'neovim/nvim-lspconfig'
-  Plug 'williamboman/nvim-lsp-installer'
-  " ex: LspInstall elixir
-  Plug 'nvim-lua/completion-nvim'
-  Plug 'mfussenegger/nvim-lint'
+  " :h mason-commands
+  " :Mason - opens a graphical status window
+  " :MasonInstall <package> ..."
+  Plug 'williamboman/mason.nvim'
+  Plug 'williamboman/mason-lspconfig.nvim'
+
+  " Autocompletion
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'saadparwaiz1/cmp_luasnip'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-nvim-lua'
+
+  "  Snippets
+  Plug 'L3MON4D3/LuaSnip'
+  Plug 'rafamadriz/friendly-snippets'
+
+  Plug 'VonHeikemen/lsp-zero.nvim'
+
+  Plug 'folke/trouble.nvim'
 
   " telescope, fuzzy file finding and live grepping
   Plug 'BurntSushi/ripgrep'
@@ -105,29 +121,45 @@ let g:lightline = {
 
 
 " =============================================================================
-" lsp installer
-" https://github.com/williamboman/nvim-lsp-installer
+" lsp config
 " =============================================================================
 
 lua <<EOF
-local lsp_installer_servers = require'nvim-lsp-installer.servers'
+local lsp = require('lsp-zero')
 
-local server_available, requested_server = lsp_installer_servers.get_server("rust_analyzer")
-if server_available then
-    requested_server:on_ready(function ()
-        local opts = {}
-        requested_server:setup(opts)
-    end)
-    if not requested_server:is_installed() then
-        -- Queue the server to be installed
-        requested_server:install()
-    end
-end
+lsp.preset('recommended')
+lsp.setup()
 EOF
 
 " =============================================================================
-" lsp config
+" Mason
 " =============================================================================
+
+lua <<EOF
+require("mason").setup()
+require("mason-lspconfig").setup()
+EOF
+
+" =============================================================================
+" trouble
+" =============================================================================
+
+lua <<EOF
+  require("trouble").setup {
+    icons = false,
+    fold_open = "v", -- icon used for open folds
+    fold_closed = ">", -- icon used for closed folds
+    indent_lines = false, -- add an indent guide below the fold icons
+    signs = {
+        -- icons / text used for a diagnostic
+        error = "error",
+        warning = "warn",
+        hint = "hint",
+        information = "info"
+    },
+    use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
+  }
+EOF
 
 " =============================================================================
 " telescope
@@ -147,7 +179,6 @@ set showmatch
 set ai "auto indent
 set expandtab " use spaces instead of tabs. TODO: see how to handle tsv files
 set wrap
-set number
 set ic
 set nobackup
 set noswapfile
@@ -162,6 +193,11 @@ let g:auto_type_info=0
 let &colorcolumn=join(range(81,82),",")
 
 
+" turn relative line numbers on
+set number
+:set relativenumber
+:set rnu
+
 " =============================================================================
 " on save file
 " =============================================================================
@@ -171,7 +207,7 @@ autocmd BufWritePre * %s/\s\+$//e
 au BufWritePost lua require('lint').try_lint()
 
 " mix format on save
-let g:mix_format_on_save = 1
+"let g:mix_format_on_save = 1
 
 " commenting this out for now
 "autocmd BufWritePre <buffer> call Preserve('lua vim.lsp.buf.formatting_sync(nil, 1000)')
@@ -193,6 +229,14 @@ nnoremap <leader>lr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <leader>lh  <cmd>lua vim.lsp.buf.hover()<CR>
 " method textDocument/rename is not supported by any of the servers registered for the current buffer
 nnoremap <silent>rn <cmd>lua vim.lsp.buf.rename()<CR>
+
+" trouble
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
+nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
+nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
+nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 
 " vim-plug commands
 nnoremap <leader>pi :PlugInstall<Return>
@@ -223,6 +267,9 @@ nnoremap <leader>gwi :Gwrite!<Return>
 nnoremap <leader>gr :Gread<Return>
 nnoremap <leader>gb :Git blame<Return>
 nnoremap <leader>gs :Git<Return>
+
+" mix format
+nnoremap <leader>mf :MixFormat<Return>
 
 " window commands
 nnoremap <leader>% :vs.<Return>
