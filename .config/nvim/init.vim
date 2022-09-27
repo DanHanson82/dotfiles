@@ -56,6 +56,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
   Plug 'VonHeikemen/lsp-zero.nvim'
 
+  " install one of these for the correct file icons https://www.nerdfonts.com/font-downloads
+  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'folke/trouble.nvim'
 
   " telescope, fuzzy file finding and live grepping
@@ -82,7 +84,8 @@ if (has("termguicolors"))
 endif
 set background=dark " or light if you want light mode
 colorscheme material
-let g:material_style = 'darker'
+let g:material_style = 'deep ocean'
+"let g:material_style = 'darker'
 
 " =============================================================================
 " tree-sitter
@@ -145,20 +148,8 @@ EOF
 " =============================================================================
 
 lua <<EOF
-  require("trouble").setup {
-    icons = false,
-    fold_open = "v", -- icon used for open folds
-    fold_closed = ">", -- icon used for closed folds
-    indent_lines = false, -- add an indent guide below the fold icons
-    signs = {
-        -- icons / text used for a diagnostic
-        error = "error",
-        warning = "warn",
-        hint = "hint",
-        information = "info"
-    },
-    use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
-  }
+  require("trouble").setup {}
+  require'nvim-web-devicons'.get_icons()
 EOF
 
 " =============================================================================
@@ -244,10 +235,9 @@ nnoremap <leader>pu :PlugUpdate<Return>
 nnoremap <leader>pd :PlugDiff<Return>
 nnoremap <leader>pc :PlugClean<Return>
 
-" Find files using Telescope command-line sugar.
-"nnoremap <leader>ff <cmd>:lua require('telescope.builtin').find_files{ find_command = {'rg', '--files', '--hidden', '-g', '!node_modules/**' , '-g', '!.git'} }<cr>
-"nnoremap <leader>ff <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
+" Find files using Telescope
+"nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>ff <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>

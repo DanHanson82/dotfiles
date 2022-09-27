@@ -3,7 +3,7 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 OLDDIR=~/dotfiles_old             # old dotfiles backup directory
-FILES=".bashrc .tmux.conf .amethyst .editorconfig .tool-versions .psqlrc"
+FILES=".bashrc .tmux.conf .amethyst .editorconfig .tool-versions .psqlrc .rgignore"
 ##########
 
 ## make backups if files exist
