@@ -69,7 +69,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 
   " appearance
-  Plug 'marko-cerovac/material.nvim'
+  Plug 'wittyjudge/gruvbox-material.nvim'
   Plug 'Yggdroot/indentLine'
 
   " status bar
@@ -82,10 +82,7 @@ call plug#end()
 if (has("termguicolors"))
   set termguicolors
 endif
-set background=dark " or light if you want light mode
-colorscheme material
-let g:material_style = 'deep ocean'
-"let g:material_style = 'darker'
+colorscheme gruvbox-material
 
 " =============================================================================
 " tree-sitter
