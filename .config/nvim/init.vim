@@ -13,7 +13,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-vinegar'
-  Plug 'tpope/vim-jdaddy'
 
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'dbakker/vim-projectroot'
@@ -257,6 +256,9 @@ nnoremap <leader>gs :Git<Return>
 
 " mix format
 nnoremap <leader>mf :MixFormat<Return>
+
+" json pretty print
+nnoremap <leader>jq :%!jq<Return>
 
 " window commands
 nnoremap <leader>% :vs.<Return>
