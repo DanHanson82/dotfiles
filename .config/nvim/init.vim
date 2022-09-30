@@ -18,7 +18,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'dbakker/vim-projectroot'
   Plug 'freitass/todo.txt-vim'
   Plug 'plasticboy/vim-markdown'
-  "Plug 'suan/vim-instant-markdown'
+  Plug 'elixir-editors/vim-elixir'
   Plug 'mhinz/vim-mix-format'
   Plug 'editorconfig/editorconfig-vim'
 
