@@ -40,19 +40,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " :MasonInstall <package> ..."
   Plug 'williamboman/mason.nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
-
-  " Autocompletion
-  Plug 'hrsh7th/nvim-cmp'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/cmp-path'
-  Plug 'saadparwaiz1/cmp_luasnip'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-nvim-lua'
-
-  "  Snippets
-  Plug 'L3MON4D3/LuaSnip'
-  Plug 'rafamadriz/friendly-snippets'
-
   Plug 'VonHeikemen/lsp-zero.nvim'
 
   " install one of these for the correct file icons https://www.nerdfonts.com/font-downloads
@@ -69,7 +56,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
   " appearance
   Plug 'wittyjudge/gruvbox-material.nvim'
-  Plug 'Yggdroot/indentLine'
+  Plug 'lukas-reineke/indent-blankline.nvim'
 
   " status bar
   Plug 'itchyny/lightline.vim'
@@ -126,7 +113,10 @@ let g:lightline = {
 lua <<EOF
 local lsp = require('lsp-zero')
 
-lsp.preset('recommended')
+lsp.preset('lsp-only')
+lsp.set_preferences({
+  set_lsp_keymaps = false
+})
 lsp.setup()
 EOF
 
@@ -194,7 +184,7 @@ autocmd BufWritePre * %s/\s\+$//e
 au BufWritePost lua require('lint').try_lint()
 
 " mix format on save
-"let g:mix_format_on_save = 1
+let g:mix_format_on_save = 1
 
 " commenting this out for now
 "autocmd BufWritePre <buffer> call Preserve('lua vim.lsp.buf.formatting_sync(nil, 1000)')
