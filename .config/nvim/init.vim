@@ -184,7 +184,7 @@ autocmd BufWritePre * %s/\s\+$//e
 au BufWritePost lua require('lint').try_lint()
 
 " mix format on save
-let g:mix_format_on_save = 1
+" let g:mix_format_on_save = 1
 
 " commenting this out for now
 "autocmd BufWritePre <buffer> call Preserve('lua vim.lsp.buf.formatting_sync(nil, 1000)')
