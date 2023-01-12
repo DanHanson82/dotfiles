@@ -31,6 +31,7 @@ return require('packer').startup(function(use)
   use "elixir-editors/vim-elixir"
   use "mhinz/vim-mix-format"
   use "editorconfig/editorconfig-vim"
+  use "kyazdani42/nvim-web-devicons"
 
   use({
     "wittyjudge/gruvbox-material.nvim",
