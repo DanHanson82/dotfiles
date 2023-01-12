@@ -34,10 +34,9 @@ for file in $ALIAS_FILES; do
 done
 
 # nvim and tmux should be installed by asdf.  install vim-plug and symlink nvim config
-mkdir -p ~/.config/nvim
+# mkdir -p ~/.config/nvim
 if [ ! -f ~/.config/nvim/init.vim ]; then
-  ln -s $DIR/.config/nvim/init.vim ~/.config/nvim/init.vim
-  curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  ln -s $DIR/.config/nvim/ ~/.config/
 fi
 
 
