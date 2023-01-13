@@ -33,8 +33,10 @@ for file in $ALIAS_FILES; do
   fi
 done
 
-# nvim and tmux should be installed by asdf.  install vim-plug and symlink nvim config
-# mkdir -p ~/.config/nvim
+# nvim and tmux should be installed by asdf.  Also, install treesitter-cli
+# install rust and then run the following to install a working version of tree-sitter-cli
+# cargo install tree-sitter-cli --git https://github.com/tree-sitter/tree-sitter.git
+# install one of these for the correct file icons https://www.nerdfonts.com/font-downloads
 if [ ! -f ~/.config/nvim/init.vim ]; then
   ln -s $DIR/.config/nvim/ ~/.config/
 fi
