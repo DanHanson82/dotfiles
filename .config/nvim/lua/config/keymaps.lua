@@ -8,17 +8,6 @@ vim.g.maplocalleader = ","
 
 local set = vim.keymap.set
 
-set("n", "<Left>", "<C-w>h")
-set("n", "<Down>", "<C-w>j")
-set("n", "<Up>", "<C-w>k")
-set("n", "<Right>", "<C-w>l")
-
-set("n", "<Esc>", "<Cmd>nohlsearch<CR>")
-
-set("n", "<Leader>p", "<Cmd>Lazy<CR>", { desc = "Plugins" })
-
-vim.keymap.set('n', '<Leader>w', ':write<CR>')
-
 -- lsp
 vim.keymap.set('n', '<leader>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
 vim.keymap.set('n', '<leader>lf', '<cmd>:lua vim.lsp.buf.formatting()<CR>')
@@ -36,10 +25,10 @@ vim.keymap.set('n', '<leader>xq', '<cmd>TroubleToggle quickfix<cr>')
 vim.keymap.set('n', '<leader>xl', '<cmd>TroubleToggle loclist<cr>')
 -- nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 
--- vim-plug commands
+-- packer commands
 vim.keymap.set('n', '<leader>pi', ':PackerInstall<Return>')
 vim.keymap.set('n', '<leader>pu', ':PackerUpdate<Return>')
-vim.keymap.set('n', '<leader>pd', ':PackerSync<Return>')
+vim.keymap.set('n', '<leader>ps', ':PackerSync<Return>')
 vim.keymap.set('n', '<leader>pc', ':PackerClean<Return>')
 
 -- Find files using Telescope

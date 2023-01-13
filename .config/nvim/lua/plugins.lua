@@ -29,8 +29,11 @@ return require('packer').startup(function(use)
   use "freitass/todo.txt-vim"
   -- Plug 'plasticboy/vim-markdown'
   use "elixir-editors/vim-elixir"
-  use "mhinz/vim-mix-format"
+  -- use "mhinz/vim-mix-format"
+  -- couldn't get colors working in terraform even with treesitter and lsp but this fixed it
+  use "hashivim/vim-terraform"
   use "editorconfig/editorconfig-vim"
+  -- install one of these for the correct file icons https://www.nerdfonts.com/font-downloads
   use "kyazdani42/nvim-web-devicons"
 
   use({
@@ -50,7 +53,7 @@ return require('packer').startup(function(use)
   }
 
   -- install rust and then run the following to install a working version of tree-sitter-cli
-  -- cargo install tree-sitter-cli --git https://github.com/tree-sitter/tree-sitter.git --tag v0.19.5
+  -- cargo install tree-sitter-cli --git https://github.com/tree-sitter/tree-sitter.git
   -- TSInstall elixir
   use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
   -- for using treesitter playground
@@ -67,6 +70,7 @@ return require('packer').startup(function(use)
     }
   }
 
+  use 'folke/lsp-colors.nvim'
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
