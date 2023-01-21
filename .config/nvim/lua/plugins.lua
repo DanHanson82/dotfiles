@@ -24,8 +24,6 @@ return require('packer').startup(function(use)
   use "tpope/vim-unimpaired"
   use "tpope/vim-vinegar"
 
-  use "jeetsukumaran/vim-buffergator"
-
   use "christoomey/vim-tmux-navigator"
   use "dbakker/vim-projectroot"
   use "freitass/todo.txt-vim"
