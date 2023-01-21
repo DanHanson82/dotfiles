@@ -24,12 +24,15 @@ return require('packer').startup(function(use)
   use "tpope/vim-unimpaired"
   use "tpope/vim-vinegar"
 
+  use "jeetsukumaran/vim-buffergator"
+
   use "christoomey/vim-tmux-navigator"
   use "dbakker/vim-projectroot"
   use "freitass/todo.txt-vim"
   -- Plug 'plasticboy/vim-markdown'
   use "elixir-editors/vim-elixir"
-  -- use "mhinz/vim-mix-format"
+  -- elixirls lsp format sometimes has issues so keeping this as backup
+  use "mhinz/vim-mix-format"
   -- couldn't get colors working in terraform even with treesitter and lsp but this fixed it
   use "hashivim/vim-terraform"
   use "editorconfig/editorconfig-vim"
