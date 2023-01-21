@@ -61,8 +61,8 @@ set('n', '<leader>mf', ':MixFormat<Return>')
 set('n', '<leader>jq', ':%!jq<Return>')
 
 -- window commands
-set('n', '<leader>%', ':vs.<Return>')
-set('n', '<leader>"', ':sp.<Return>')
+set('n', '<leader>%', ':vs<Return>')
+set('n', '<leader>"', ':sp<Return>')
 set('n', '<leader>o', ':only<Return>')
 
 -- new tab

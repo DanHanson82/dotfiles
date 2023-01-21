@@ -4,6 +4,7 @@ opt.guicursor = ""
 
 opt.nu = true
 opt.relativenumber = true
+opt.ignorecase = true
 
 opt.expandtab = true
 opt.smartindent = true
