@@ -10,7 +10,10 @@ local set = vim.keymap.set
 
 -- lsp
 set('n', '<leader>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-set('n', '<leader>lf', '<cmd>:lua vim.lsp.buf.formatting()<CR>')
+-- older lsp version
+-- set('n', '<leader>lf', '<cmd>:lua vim.lsp.buf.formatting()<CR>')
+-- newer lsp version
+set('n', '<space>lf', function() vim.lsp.buf.format { async = true } end, bufopts)
 set('n', '<leader>ld', '<cmd>lua vim.lsp.buf.definition()<CR>')
 set('n', '<leader>lr', '<cmd>lua vim.lsp.buf.references()<CR>')
 set('n', '<leader>lh ', '<cmd>lua vim.lsp.buf.hover()<CR>')
