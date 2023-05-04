@@ -23,12 +23,13 @@ return require('packer').startup(function(use)
   use "tpope/vim-repeat"
   use "tpope/vim-unimpaired"
   use "tpope/vim-vinegar"
+  use "tpope/vim-projectionist"
 
   use "christoomey/vim-tmux-navigator"
-  use "dbakker/vim-projectroot"
+  -- use "dbakker/vim-projectroot"
   use "freitass/todo.txt-vim"
   -- Plug 'plasticboy/vim-markdown'
-  use "elixir-editors/vim-elixir"
+  -- use "elixir-editors/vim-elixir"
   -- elixirls lsp format sometimes has issues so keeping this as backup
   use "mhinz/vim-mix-format"
   -- couldn't get colors working in terraform even with treesitter and lsp but this fixed it
@@ -37,13 +38,8 @@ return require('packer').startup(function(use)
   -- install one of these for the correct file icons https://www.nerdfonts.com/font-downloads
   use "kyazdani42/nvim-web-devicons"
 
-  use({
-    "wittyjudge/gruvbox-material.nvim",
-    as = "gruvbox-material",
-    config = function()
-      vim.cmd('colorscheme gruvbox-material')
-    end
-  })
+  use { "ellisonleao/gruvbox.nvim" }
+  -- use "savq/melange-nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use {
     'nvim-lualine/lualine.nvim',
