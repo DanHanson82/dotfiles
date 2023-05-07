@@ -10,6 +10,12 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 -- lsp/lsp-zero
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
+
+require("elixir").setup({
+  credo = { enable = true },
+  elixirls = { enable = true },
+})
+
 lsp.setup()
 
 -- mason setup

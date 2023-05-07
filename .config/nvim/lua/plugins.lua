@@ -26,36 +26,23 @@ return require('packer').startup(function(use)
   use "tpope/vim-projectionist"
 
   use "christoomey/vim-tmux-navigator"
-  -- use "dbakker/vim-projectroot"
   use "freitass/todo.txt-vim"
-  -- Plug 'plasticboy/vim-markdown'
-  -- use "elixir-editors/vim-elixir"
-  -- elixirls lsp format sometimes has issues so keeping this as backup
-  -- use "mhinz/vim-mix-format"
-  -- see if colors are working after treesitter config changes
-  -- use "hashivim/vim-terraform"
   use "editorconfig/editorconfig-vim"
   -- install one of these for the correct file icons https://www.nerdfonts.com/font-downloads
   use "kyazdani42/nvim-web-devicons"
 
-  --use { "ellisonleao/gruvbox.nvim" }
-  --use 'folke/tokyonight.nvim'
-  -- use "savq/melange-nvim"
+  -- use { "ellisonleao/gruvbox.nvim" }
+  -- use { "savq/melange-nvim" }
+  -- use {"rebelot/kanagawa.nvim" }
   use { "catppuccin/nvim", as = "catppuccin" }
-  --use 'rebelot/kanagawa.nvim'
-  --use "EdenEast/nightfox.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = {
-      options = { theme = 'gruvbox' }
-    },
   }
 
   -- install rust and then run the following to install a working version of tree-sitter-cli
   -- cargo install tree-sitter-cli --git https://github.com/tree-sitter/tree-sitter.git
-  -- TSInstall elixir
   use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
   -- for using treesitter playground
   -- :TSInstall query
@@ -101,6 +88,8 @@ return require('packer').startup(function(use)
       { 'rafamadriz/friendly-snippets' },
     }
   }
+
+  use({ "elixir-tools/elixir-tools.nvim", requires = { "nvim-lua/plenary.nvim" } })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
