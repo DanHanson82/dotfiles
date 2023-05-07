@@ -32,9 +32,10 @@ require('telescope').setup {
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('projectionist')
 
 require("nvim-treesitter.configs").setup({
- -- A list of parser names, or "all" (the five listed parsers should always be installed)
+  -- A list of parser names, or "all" (the five listed parsers should always be installed)
   ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
 
   highlight = { enable = true },
@@ -45,8 +46,19 @@ require("nvim-treesitter.configs").setup({
   -- Automatically install missing parsers when entering buffer
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
   auto_install = true,
+
+  -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+  -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+  -- Using this option may slow down your editor, and you may see some duplicate highlights.
+  -- Instead of true it can also be a list of languages
+  additional_vim_regex_highlighting = false,
 })
 
 
-vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
+--vim.o.background = "dark" -- or "light" for light mode
+--vim.cmd([[colorscheme terafox]])
+--vim.cmd([[colorscheme kanagawa-wave]])
+--vim.cmd([[colorscheme melange]])
+vim.cmd([[colorscheme catppuccin-mocha]])
+--vim.cmd([[colorscheme gruvbox]])
+--vim.cmd([[colorscheme tokyonight-moon]])

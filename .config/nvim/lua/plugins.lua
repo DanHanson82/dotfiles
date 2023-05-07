@@ -31,15 +31,19 @@ return require('packer').startup(function(use)
   -- Plug 'plasticboy/vim-markdown'
   -- use "elixir-editors/vim-elixir"
   -- elixirls lsp format sometimes has issues so keeping this as backup
-  use "mhinz/vim-mix-format"
-  -- couldn't get colors working in terraform even with treesitter and lsp but this fixed it
-  use "hashivim/vim-terraform"
+  -- use "mhinz/vim-mix-format"
+  -- see if colors are working after treesitter config changes
+  -- use "hashivim/vim-terraform"
   use "editorconfig/editorconfig-vim"
   -- install one of these for the correct file icons https://www.nerdfonts.com/font-downloads
   use "kyazdani42/nvim-web-devicons"
 
-  use { "ellisonleao/gruvbox.nvim" }
+  --use { "ellisonleao/gruvbox.nvim" }
+  --use 'folke/tokyonight.nvim'
   -- use "savq/melange-nvim"
+  use { "catppuccin/nvim", as = "catppuccin" }
+  --use 'rebelot/kanagawa.nvim'
+  --use "EdenEast/nightfox.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use {
     'nvim-lualine/lualine.nvim',
@@ -66,7 +70,7 @@ return require('packer').startup(function(use)
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     }
   }
-
+  use { "adalessa/telescope-projectionist.nvim" }
   use 'folke/lsp-colors.nvim'
   use {
     "folke/trouble.nvim",
