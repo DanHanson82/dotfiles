@@ -29,12 +29,13 @@ return require('packer').startup(function(use)
   use "freitass/todo.txt-vim"
   use "editorconfig/editorconfig-vim"
   -- install one of these for the correct file icons https://www.nerdfonts.com/font-downloads
-  use "kyazdani42/nvim-web-devicons"
+  use 'nvim-tree/nvim-web-devicons'
 
-  -- use { "ellisonleao/gruvbox.nvim" }
-  -- use { "savq/melange-nvim" }
-  -- use {"rebelot/kanagawa.nvim" }
-  use { "catppuccin/nvim", as = "catppuccin" }
+  --use { "ellisonleao/gruvbox.nvim" }
+  --use { "savq/melange-nvim" }
+  use { "rebelot/kanagawa.nvim" }
+  --use { "Mofiqul/dracula.nvim" }
+  --use { "catppuccin/nvim", as = "catppuccin" }
   use "lukas-reineke/indent-blankline.nvim"
   use {
     'nvim-lualine/lualine.nvim',
@@ -89,7 +90,7 @@ return require('packer').startup(function(use)
     }
   }
 
-  use({ "elixir-tools/elixir-tools.nvim", requires = { "nvim-lua/plenary.nvim" } })
+  -- use({ "elixir-tools/elixir-tools.nvim", requires = { "nvim-lua/plenary.nvim" } })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
