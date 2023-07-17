@@ -60,10 +60,10 @@ require("nvim-treesitter.configs").setup({
 
 --vim.o.background = "dark" -- or "light" for light mode
 --vim.cmd([[colorscheme terafox]])
-vim.cmd([[colorscheme kanagawa-wave]])
+--vim.cmd([[colorscheme kanagawa-wave]])
 --vim.cmd[[colorscheme dracula]]
 --vim.cmd[[colorscheme dracula-soft]]
 --vim.cmd([[colorscheme melange]])
---vim.cmd([[colorscheme catppuccin-mocha]])
+vim.cmd([[colorscheme catppuccin-mocha]])
 --vim.cmd([[colorscheme gruvbox]])
 --vim.cmd([[colorscheme tokyonight-moon]])

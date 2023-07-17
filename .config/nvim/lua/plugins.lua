@@ -34,8 +34,8 @@ return require('packer').startup(function(use)
   --use { "ellisonleao/gruvbox.nvim" }
   --use { "savq/melange-nvim" }
   use { "rebelot/kanagawa.nvim" }
-  --use { "Mofiqul/dracula.nvim" }
-  --use { "catppuccin/nvim", as = "catppuccin" }
+  use { "Mofiqul/dracula.nvim" }
+  use { "catppuccin/nvim", as = "catppuccin" }
   use "lukas-reineke/indent-blankline.nvim"
   use {
     'nvim-lualine/lualine.nvim',
