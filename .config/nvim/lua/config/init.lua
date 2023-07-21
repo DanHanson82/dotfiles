@@ -32,6 +32,22 @@ require('telescope').setup {
     }
   }
 }
+
+require('telescope').setup {
+  defaults = {
+    vimgrep_arguments = {
+      'rg',
+      --'--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--hidden',
+    },
+  }
+}
+
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
@@ -54,7 +70,7 @@ require("nvim-treesitter.configs").setup({
   -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
   -- Using this option may slow down your editor, and you may see some duplicate highlights.
   -- Instead of true it can also be a list of languages
-  additional_vim_regex_highlighting = false,
+  additional_vim_regex_highlighting = true,
 })
 
 

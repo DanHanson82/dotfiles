@@ -25,6 +25,8 @@ return require('packer').startup(function(use)
   use "tpope/vim-vinegar"
   use "tpope/vim-projectionist"
 
+  use "ludovicchabant/vim-gutentags"
+
   use "christoomey/vim-tmux-navigator"
   use "freitass/todo.txt-vim"
   use "editorconfig/editorconfig-vim"
