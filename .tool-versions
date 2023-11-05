@@ -1,15 +1,10 @@
-nodejs 16.0.0
-erlang 24.0.2
-elixir 1.12.1-otp-24
+nodejs 21.1.0
 rust 1.49.0
-mongodb 5.0.1
-python 3.8.7 2.7.18
-postgres 12.7
-mkcert 1.4.3
+erlang 25.3.1
+elixir 1.12.1-otp-24
 tmux 3.1
-neovim 0.7.2
+neovim 0.9.4
 fzf 0.27.1
 ripgrep 12.1.1
 bat 0.18.1
 fd 8.2.1
-awscli 2.2.27
