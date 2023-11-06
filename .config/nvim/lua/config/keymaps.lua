@@ -59,7 +59,7 @@ set('n', '<leader>gb', ':Git blame<Return>')
 set('n', '<leader>gs', ':Git<Return>')
 
 -- mix format
--- set('n', '<leader>mf', ':MixFormat<Return>')
+set('n', '<leader>mf', ':MixFormat<Return>')
 
 -- json pretty print
 set('n', '<leader>jq', ':%!jq<Return>')

@@ -8,25 +8,43 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 -- lsp/lsp-zero
-local lsp = require('lsp-zero')
-lsp.preset('recommended')
+local lsp_zero = require('lsp-zero')
 
---require("elixir").setup()
+lsp_zero.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp_zero.default_keymaps({ buffer = bufnr })
+end)
 
-lsp.setup()
+-- see :help lsp-zero-guide:integrate-with-mason-nvim
+-- to learn how to use mason.nvim with lsp-zero
+require('mason').setup({})
 
--- mason setup
-require("mason").setup()
-require('mason-lspconfig').setup({
-  ensure_installed = { 'tsserver', 'rust_analyzer' },
-  handlers = {
-    lsp.default_setup,
-    lua_ls = function()
-      local lua_opts = lsp.nvim_lua_ls()
-      require('lspconfig').lua_ls.setup(lua_opts)
-    end,
-  }
-})
+--refer to :h mason-lspconfig-automatic-server-setup
+local handlers = {
+  -- The first entry (without a key) will be the default handler
+  -- and will be called for each installed server that doesn't have
+  -- a dedicated handler.
+  -- lsp_zero.default_setup,
+  function(server_name) -- default handler (optional)
+    require("lspconfig")[server_name].setup {}
+  end,
+  -- Next, you can provide targeted overrides for specific servers.
+  ["lua_ls"] = function()
+    local lspconfig = require("lspconfig")
+    lspconfig.lua_ls.setup {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" }
+          }
+        }
+      }
+    }
+  end,
+}
+
+require("mason-lspconfig").setup({ handlers = handlers })
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -37,7 +55,7 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'nvim_lua' },
   },
-  formatting = lsp.cmp_format(),
+  formatting = lsp_zero.cmp_format(),
   mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
@@ -99,7 +117,6 @@ require("nvim-treesitter.configs").setup({
   -- Instead of true it can also be a list of languages
   additional_vim_regex_highlighting = true,
 })
-
 
 --vim.o.background = "dark" -- or "light" for light mode
 --vim.cmd([[colorscheme terafox]])

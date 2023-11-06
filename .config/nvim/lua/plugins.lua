@@ -25,8 +25,8 @@ return require('packer').startup(function(use)
   use "tpope/vim-vinegar"
   use "tpope/vim-projectionist"
 
-  use "ludovicchabant/vim-gutentags"
-
+  -- use "ludovicchabant/vim-gutentags"
+  use "mhinz/vim-mix-format"
   use "christoomey/vim-tmux-navigator"
   use "freitass/todo.txt-vim"
   use "editorconfig/editorconfig-vim"
@@ -72,6 +72,7 @@ return require('packer').startup(function(use)
   -- :MasonInstall <package> ..."
   use {
     'VonHeikemen/lsp-zero.nvim',
+    branch = 'v3.x',
     requires = {
       -- LSP Support
       { 'neovim/nvim-lspconfig' },
