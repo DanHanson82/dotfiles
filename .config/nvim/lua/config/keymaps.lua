@@ -28,11 +28,7 @@ set('n', '<leader>xq', '<cmd>TroubleToggle quickfix<cr>')
 set('n', '<leader>xl', '<cmd>TroubleToggle loclist<cr>')
 -- nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 
--- packer commands
-set('n', '<leader>pi', ':PackerInstall<Return>')
-set('n', '<leader>pu', ':PackerUpdate<Return>')
-set('n', '<leader>ps', ':PackerSync<Return>')
-set('n', '<leader>pc', ':PackerClean<Return>')
+set('n', '<leader>ps', ':Lazy sync<Return>')
 
 -- Find files using Telescope
 --nnoremap <leader>ff <cmd>Telescope find_files<cr>
