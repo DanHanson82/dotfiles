@@ -29,7 +29,7 @@ require("lazy").setup({
   "tpope/vim-unimpaired",
   "tpope/vim-vinegar",
 
-  -- use "ludovicchabant/vim-gutentags"
+  -- "ludovicchabant/vim-gutentags"
   "mhinz/vim-mix-format",
   "christoomey/vim-tmux-navigator",
   "freitass/todo.txt-vim",
@@ -59,8 +59,6 @@ require("lazy").setup({
       { 'BurntSushi/ripgrep' },
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
-      --{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-      --
     }
   },
   'folke/lsp-colors.nvim',
@@ -74,16 +72,21 @@ require("lazy").setup({
   -- :MasonInstall <package> ..."
   {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
+    --branch = 'v3.x',
     dependencies = {
-      --- Uncomment these if you want to manage LSP servers from neovim
+      { 'neovim/nvim-lspconfig' },
       { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
 
-      { 'VonHeikemen/lsp-zero.nvim',        branch = 'v3.x' },
-      { 'neovim/nvim-lspconfig' },
-      { 'hrsh7th/cmp-nvim-lsp' },
+      -- Autocompletion
       { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lua' },
+
+      -- Snippets
       { 'L3MON4D3/LuaSnip' },
     }
   }
