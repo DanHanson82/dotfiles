@@ -21,3 +21,7 @@ opt.termguicolors = true
 opt.scrolloff = 8
 opt.updatetime = 50
 opt.colorcolumn = "80"
+
+opt.foldmethod = "indent"
+opt.foldlevel = 1
+opt.foldenable = false
