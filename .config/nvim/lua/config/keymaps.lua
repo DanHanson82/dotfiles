@@ -20,14 +20,6 @@ set('n', '<silent>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
 set('n', '<space>m', ':Mason<Return>')
 
--- trouble
-set('n', '<leader>xx', '<cmd>TroubleToggle<cr>')
-set('n', '<leader>xw', '<cmd>TroubleToggle workspace_diagnostics<cr>')
-set('n', '<leader>xd', '<cmd>TroubleToggle document_diagnostics<cr>')
-set('n', '<leader>xq', '<cmd>TroubleToggle quickfix<cr>')
-set('n', '<leader>xl', '<cmd>TroubleToggle loclist<cr>')
--- nnoremap gR <cmd>TroubleToggle lsp_references<cr>
-
 set('n', '<leader>ps', ':Lazy sync<Return>')
 
 -- Find files using Telescope

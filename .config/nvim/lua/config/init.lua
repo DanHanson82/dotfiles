@@ -21,6 +21,15 @@ end)
 -- to learn how to use mason.nvim with lsp-zero
 require('mason').setup({})
 
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" } }
+    }
+  }
+})
+
 --refer to :h mason-lspconfig-automatic-server-setup
 local handlers = {
   -- The first entry (without a key) will be the default handler
@@ -29,19 +38,6 @@ local handlers = {
   -- lsp_zero.default_setup,
   function(server_name) -- default handler (optional)
     require("lspconfig")[server_name].setup {}
-  end,
-  -- Next, you can provide targeted overrides for specific servers.
-  ["lua_ls"] = function()
-    local lspconfig = require("lspconfig")
-    lspconfig.lua_ls.setup {
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim" }
-          }
-        }
-      }
-    }
   end,
 }
 
