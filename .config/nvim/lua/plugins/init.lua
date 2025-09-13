@@ -15,7 +15,6 @@ return {
   "tpope/vim-vinegar",
 
   -- "ludovicchabant/vim-gutentags"
-  "mhinz/vim-mix-format",
   "christoomey/vim-tmux-navigator",
   "freitass/todo.txt-vim",
   "editorconfig/editorconfig-vim",
@@ -32,7 +31,7 @@ return {
 
   -- install rust and then run the following to install a working version of tree-sitter-cli
   -- cargo install tree-sitter-cli --git https://github.com/tree-sitter/tree-sitter.git
-  { 'nvim-treesitter/nvim-treesitter', build = ":TSUpdate" },
+  { 'nvim-treesitter/nvim-treesitter',       build = ":TSUpdate" },
   -- for using treesitter playground
   -- :TSInstall query
   "nvim-treesitter/playground",
@@ -46,4 +45,5 @@ return {
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
     }
   },
+  { "dimaportenko/project-cli-commands.nvim" },
 }
