@@ -12,7 +12,7 @@ return {
   "tpope/vim-surround",
   "tpope/vim-repeat",
   "tpope/vim-unimpaired",
-  "tpope/vim-vinegar",
+  -- "tpope/vim-vinegar",
 
   -- "ludovicchabant/vim-gutentags"
   "christoomey/vim-tmux-navigator",
@@ -56,6 +56,17 @@ return {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
     }
+  },
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    -- Optional dependencies
+    --dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+    dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    lazy = false,
   },
   { "dimaportenko/project-cli-commands.nvim" },
 }

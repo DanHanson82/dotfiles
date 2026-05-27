@@ -8,6 +8,8 @@ vim.g.maplocalleader = ","
 
 local set = vim.keymap.set
 
+set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
 -- lsp
 set('n', '<space>lf', function() vim.lsp.buf.format { async = true } end, bufopts)
 set('n', '<space>li', ':LspInfo<Return>')

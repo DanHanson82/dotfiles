@@ -88,16 +88,22 @@ require('telescope').setup {
   }
 }
 
-
 require('nvim-treesitter').install { 'elixir', 'lua', 'vim', 'vimdoc', 'query' }
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'elixir' },
+  pattern = { 'elixir', 'lua' },
   callback = function() vim.treesitter.start() end,
 })
 
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
+
+require("oil").setup({
+  view_options = {
+    -- Show files and directories that start with "."
+    show_hidden = true,
+  }
+})
 
 vim.cmd([[colorscheme catppuccin-mocha]])
