@@ -2,10 +2,7 @@
 -- Keyboard Mappings
 ------------------------------------------------------------
 
--- Set leader keys
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
-
+-- leader keys set in lazy.lua
 local set = vim.keymap.set
 
 -- lsp

@@ -1,7 +1,5 @@
 return {
   "folke/which-key.nvim",
-  { "folke/neoconf.nvim", cmd = "Neoconf" },
-  "folke/neodev.nvim",
 
   -- from the myth, the man, the legend
   -- git plugin so awesome it should be illegal

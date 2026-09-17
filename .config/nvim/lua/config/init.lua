@@ -8,16 +8,14 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   command = [[%s/\s\+$//e]],
 })
 
+-- OSC 52 copy only: paste-read isn't supported by most terminals (security),
+-- so pull the local clipboard in via native insert-mode paste (bracketed paste).
 vim.g.clipboard = {
   name = 'OSC 52',
   copy = {
     ['+'] = require('vim.ui.clipboard.osc52').copy '+',
-    --['*'] = require('vim.ui.clipboard.osc52').copy '*',
   },
-  paste = {
-    ['+'] = require('vim.ui.clipboard.osc52').paste '+',
-    --['*'] = require('vim.ui.clipboard.osc52').paste '*',
-  },
+  paste = {},
 }
 
 require('mason').setup({})
@@ -70,10 +68,7 @@ require('telescope').setup {
       case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
       -- the default case_mode is "smart_case"
     }
-  }
-}
-
-require('telescope').setup {
+  },
   defaults = {
     vimgrep_arguments = {
       'rg',
