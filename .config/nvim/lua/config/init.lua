@@ -15,7 +15,9 @@ vim.g.clipboard = {
   copy = {
     ['+'] = require('vim.ui.clipboard.osc52').copy '+',
   },
-  paste = {},
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste '+',
+  }
 }
 
 require('mason').setup({})
