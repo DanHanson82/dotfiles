@@ -1,7 +1,7 @@
 #! /bin/bash
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-FILES=".bashrc .tmux.conf .editorconfig .psqlrc .rgignore"
+FILES=".bashrc .vimrc .tmux.conf .editorconfig .psqlrc .rgignore"
 
 cd $DIR
 
