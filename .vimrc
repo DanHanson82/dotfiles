@@ -30,6 +30,8 @@ call minpac#add('elixir-lang/vim-elixir')
 call minpac#add('mhinz/vim-mix-format')
 call minpac#add('catppuccin/vim')
 call minpac#add('ryanoasis/vim-devicons')
+call minpac#add('lambdalisue/vim-nerdfont')
+
 
 let g:airline_theme = 'catppuccin_mocha'
 colorscheme catppuccin_mocha
