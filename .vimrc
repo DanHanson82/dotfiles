@@ -76,6 +76,7 @@ set relativenumber
 set ic
 set nobackup
 set noswapfile
+set termguicolors
 
 " statusline
 set laststatus=2
